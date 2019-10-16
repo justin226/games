@@ -16,3 +16,12 @@ Go!
 </button>
 <span><br><br></span>
 <span id="Result">
+???
+</span>
+<script>
+document.getElementById("go").addEventListener("click", function(){var hijs= document.getElementById("hi").value;
+var lojs=document.getElementById("lo").value;
+var a = Math.floor(
+Math.random()*(hijs-lojs)+ lojs
+)
+});
