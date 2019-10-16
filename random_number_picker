@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>
+Random Number Picker
+</title>
+</head>
+<body>
+<p>Highest<br><br></p>
+<input type="text" id="hi">
+<p>Lowest<br><br></p>
+<input type="text" id="lo">
+<span><br><br></span>
+<button id="go">
+Go!
+</button>
+<span><br><br></span>
+<span id="Result">
