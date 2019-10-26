@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<head>
+<title>
+Pick the random 4 digit number!
+</title>
+</head>
+<body>
+<h1>
+  Guess the Number!
+</h1>
+<h2>
+By: Justin Fu 傅嵩皓
+</h2>
+<div id="game">
+  <p>
+    Enter a 4-digit number:
+  </p>
+  
+  &gt;
+  <input title="Enter the number here!" type="number" id="response">
+  <button id="enter">
+    Submit
+  </button>
+  <br>
+  
+  &lt;
+  
+  <p id="return" style= "display: inline">
+  
+  </p>
+  <br>
+  <br>
+  <a id="help">Help</a>
+</div>
+<div id="helppage" style="display: none">
+  Enter a 4 digit number and click submit!
+  If the answer is wrong, you will get "The answer is LESS THAN" or "GREATER THAN" to help you! If you get LESS THAN, then the number you entered is too large. If you get GREATER THAN, then your answer is too small.
+  <br>
+  <br>
+  <a id="back">Back</a>
+</div>
+<script>
+var a;
+newNumber();
+
+function newNumber() {
+  a = Math.floor((Math.random() * (9999 - 1000)) + 1000);
+}
+document.getElementById("help").addEventListener("click", function() {
+  document.getElementById("game").style.display = "none";
+  document.getElementById("helppage").style.display = "block";
+});
+document.getElementById("back").addEventListener("click", function() {
+  document.getElementById("game").style.display = "block";
+  document.getElementById("helppage").style.display = "none";
+});
+document.getElementById("enter").addEventListener("click", function() {
+  if (parseInt(document.getElementById("response").value) === a) {
+    document.getElementById("return").innerHTML = ("Correct!");
+    newNumber();
+  } else {
+    if (parseInt(document.getElementById("response").value) > a) {
+    	document.getElementById("return").innerHTML = "The answer is LESS THAN";
+    }
+    if (parseInt(document.getElementById("response").value) < a) {
+    	document.getElementById("return").innerHTML = "The answer is GREATER THAN";
+    }
+  }
+});
+
+</script>
+</body>
