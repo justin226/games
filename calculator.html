@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <style>
+        /*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Sep 28, 2019, 7:30:57 PM
+    Author     : justin
+*/
+
+
+body {
+    font-family: "Courier New", Courier, monospace;
+    font-size: .85em;
+}
+header {
+    text-align: center;
+}
+h2 {
+    text-align: center;
+    font-size: 1.2em;
+    border-top: 2px dashed yellow;
+    border-bottom: 2px dashed yellow;
+}
+input[type=text] {
+    width: 40px;
+    height: 40px;
+    margin-left: 20px;
+    background-color: #DADADA;
+    font-size: 1.2em;
+}
+button {
+    width: 200px;
+    font-size: 2em;
+}
+#calculator {
+    border: 1px solid #dadada;
+    background-color: #DADADA;
+    border-radius: 4px;
+    padding: 4px;
+    box-shadow: 10px 10px 5px #888888;
+}
+.input-area {
+    
+
+
+    background-color: #42FF8C;
+    padding: 8px;
+    margin: 8px;
+    text-align: center;
+    border-radius: 8px;
+}
+.operator-choices {
+    text-align: left;
+}
+.output-area {
+    background-color: #333333;
+    border-radius: 8px;
+    color: #FFFFFF;
+    padding: 8px;
+    margin: 8px;
+    font-size: 1.5em;
+    font-family: "Courier New", Courier, monospace;
+}
+.Back {
+    background-color: #42FF8C;
+    border: black;
+    border-radius: 8px;
+    width: 20px;
+    font-family: courier-new;
+    box-shadow: 10px 10px 5px #888888;
+}
+.Game {
+    background-color: lightgray;
+    border:black;
+    border-radius: 8px;
+    box-shadow: 10px 10px 5px #888888;
+}
+        </style>
+        <style>A {text-decoration: none;} </style>
+        <title>LOGICAL CALCULATOR</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <div id="calculator">
+        <header>
+        <h1>
+            <strong>
+                Calculator
+            </strong>
+        </h1>
+        </header>
+        <div class="input-area">
+        <h2>
+            <strong>
+                Step 1: Enter 1st Number
+            </strong>
+        </h2>
+        <input type="text" name="num1" id="1">
+        <select id="op1-type">
+            <option value="number">number</option>
+            <option value="string">string</option>
+        </select>
+        </div>
+        
+        <div class="input-area">
+        <h2>
+            <strong>
+                Step 2: Enter an operand
+            </strong>
+        </h2>
+            <div class="operator-choices">
+        <h3>
+            Arithmetic Operators
+        </h3>
+        <input type="radio" name="pm" value="+" id="op1">
+        <label for="op1">+</label>
+        <input type="radio" name="pm" value="-" id="op2">
+        <label for="op2">-</label>
+        <input type="radio" name="pm" value="×" id="op3">
+        <label for="op3">×</label>
+        <input type="radio" name="pm" value="÷" id="op4">
+        <label for="op4">÷</label>
+        <input type="radio" name="pm" value="%" id="op5">
+        <label for="op5">%</label>
+        <h3>
+            Comparison Operators
+        </h3>
+        <input type="radio" name="pm" value="==" id="op6">
+        <label for="op6">==</label>
+        <input type="radio" name="pm" value="===" id="op7">
+        <label for="op7">===</label>
+        <input type="radio" name="pm" value="!=" id="op8">
+        <label for="op8">!=</label>
+        <input type="radio" name="pm" value="!==" id="op9">
+        <label for="op9">!==</label>
+        <input type="radio" name="pm" value="<" id="op10">
+        <label for="op10">&lt;</label>
+        <input type="radio" name="pm" value=">" id="op11">
+        <label for="op11">></label>
+        <input type="radio" name="pm" value="<=" id="op12">
+        <label for="op12">&lt;=</label>
+        <input type="radio" name="pm" value=">=" id="op13">
+        <label for="op13">=</label>
+        </div>
+        </div>
+        <div class="input-area">
+        <h2>
+            <strong>
+                Step 3: Enter 2nd Number
+            </strong>
+        </h2>
+        <input type="text" name="num1" id="2">
+        <select id="op2-type">
+            <option value="number">number</option>
+            <option value="string">string</option>
+        </select>
+        </div>
+        <div class="input-area">
+        <h2>
+            <strong>
+                Step 4: Click the Button
+            </strong>
+        </h2>
+        <button id ="calc">
+            Calculate It!
+        </button>
+        </div>
+        <div class="output-area">
+            <h2>
+            <strong>
+                Output
+            </strong>
+        </h2>
+        <hr>
+        <span>Equation: </span>
+        <span id="equation">???</span>
+        <span><br></span>
+        <span>Result: </span>
+        <span id="Output">???</span>
+        </div>
+    </div>
+    
+        <script>/* 
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+var op1;
+var op2;
+var op3;
+var op4;
+var op5;
+var op6;
+var op7;
+var op8;
+var op9;
+var op10;
+var op11;
+var op12;
+var op13;
+var num1;
+var num2;
+var result;
+var equation;
+var calctype;
+var calctype2;
+var realEquation;
+document.getElementById("calc").onclick = StartCalc;
+function StartCalc() {
+    if (document.getElementById("op1-type").value === "number" ){
+        num1 = parseInt(document.getElementById("1").value);
+        calctype = "num";
+    }
+    if (document.getElementById("op1-type").value === "string"){
+        num1 = document.getElementById("1").value;
+        calctype = "str";
+    }
+    if (document.getElementById("op2-type").value === "number"){
+        num2 = parseInt(document.getElementById("2").value);
+        caltype2 = "num";
+    } 
+    if (document.getElementById("op2-type").value === "string"){
+        num2 = document.getElementById("2").value;
+        calctype2 = "str";
+    }
+    Calc();
+}
+function Calc() {
+
+    if (document.getElementById("op1").checked) {
+        op1 = "true";
+    } else {
+        op1 = "false";
+    }
+
+    if (document.getElementById("op2").checked) {
+        op2 = "true";
+    } else {
+        op2 = "false";
+    }
+    
+    if (document.getElementById("op3").checked) {
+        op3 = "true";
+    } else {
+        op3 = "false";
+    }
+    
+    if (document.getElementById("op4").checked) {
+        op4 = "true";
+    } else {
+        op4 = "false";
+    }
+    
+    if (document.getElementById("op5").checked) {
+        op5 = "true";
+    } else {
+        op5 = "false";
+    }
+    
+    if (document.getElementById("op6").checked) {
+        op6 = "true";
+    } else {
+        op6 = "false";
+    }
+    
+    if (document.getElementById("op7").checked) {
+        op7 = "true";
+    } else {
+        op7 = "false";
+    }
+    
+    if (document.getElementById("op8").checked) {
+        op8 = "true";
+    } else {
+        op8 = "false";
+    }
+    
+    if (document.getElementById("op9").checked) {
+        op9 = "true";
+    } else {
+        op9 = "false";
+    }
+    
+    if (document.getElementById("op10").checked) {
+        op10 = "true";
+    } else {
+        op10 = "false";
+    }
+ 
+    if (document.getElementById("op11").checked) {
+        op11 = "true";
+    } else {
+        op11 = "false";
+    }
+    
+    if (document.getElementById("op12").checked) {
+        op12 = "true";
+    } else {
+        op12 = "false";
+    }
+    
+    if (document.getElementById("op13").checked) {
+        op13 = "true";
+    } else {
+        op13 = "false";
+    }
+
+    if (op1 === "true") {
+        result = num1 + num2;
+        equation = num1 + " + " + num2;
+
+    }
+    if (op2 === "true") {
+        result = num1 - num2;
+        equation = num1 +  " - "  + num2;
+    }
+
+    if (op3 === "true") {
+        result = num1 * num2;
+        equation = num1 +  " × " + num2;
+    }
+
+    if (op4 === "true") {
+        result = num1 / num2;
+        equation = num1 +  " ÷ " + num2;
+    }
+
+    if (op5 === "true") {
+        result = num1 % num2;
+        equation = num1 +  " % " + num2;
+    }
+
+    if (op6 === "true") {
+        result = num1 == num2;
+        equation = num1 +  " == " + num2;
+    }
+
+    if (op7 === "true") {
+        result = num1 === num2;
+        equation = num1 + " === " + num2;
+    }
+
+    if (op8 === "true") {
+        result = num1 != num2;
+        equation = num1 +  " != " + num2;
+    }
+
+    if (op9 === "true") {
+        result = num1 !== num2;
+        equation =  num1 + " !== " + num2;
+    }
+
+    if (op10 === "true") {
+        result = num1 < num2;
+        equation = num1 +  " < " + num2;
+    }
+
+    if (op11 === "true") {
+        result = num1 > num2;
+        equation = num1 +   " > " + num2 ;
+    }
+
+    if (op12 === "true") {
+        result = num1 <= num2;
+        equation = num1 +  " <= " + num2 ;
+    }
+
+    if (op13 === "true") {
+        result = num1 >= num2;
+        equation = num1 +  " >= " + num2;
+    }
+
+    
+    
+    document.getElementById("Output").innerHTML = result;
+    document.getElementById("equation").innerHTML = equation;
+}
+</script>
+</html>
