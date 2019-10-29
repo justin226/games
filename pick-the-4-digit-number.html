@@ -84,12 +84,17 @@ document.getElementById("help").addEventListener("click", function() {
 });
 document.getElementById("yes").addEventListener("click", function() {
   document.getElementById("game").style.display = "block";
-  document.getElementById("give puppage").style.display = "block";
+  document.getElementById("give puppage").style.display = "none";
+  giveUp();
 });
   document.getElementById("no").addEventListener("click", function() {
   document.getElementById("game").style.display = "block";
   document.getElementById("helppage").style.display = "none";
 });
+function giveUp(){
+  document.getElementById("return").innerHTML = "The answer was " + a;
+  newNumber();
+}
 document.getElementById("give up").addEventListener("click", function() {
   document.getElementById("game").style.display = "none";
   document.getElementById("give uppage").style.display = "block";
