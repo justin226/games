@@ -76,8 +76,12 @@ By: Justin Fu 傅嵩皓
   </div>
 <script>
 var a;
+  var b;
 newNumber();
-
+function giveUp(){
+  b = "The answer was " + a;
+  document.getElementById("return").innerHTML = b;
+}
 function newNumber() {
   a = Math.floor((Math.random() * (9999 - 1000)) + 1000);
 }
