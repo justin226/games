@@ -91,16 +91,16 @@ document.getElementById("help").addEventListener("click", function(){
 document.getElementById("yes").addEventListener("click", function() {
   document.getElementById("game").style.display = "block";
   document.getElementById("give uppage").style.display = "none";
-  
-  document.getElementById("return").innerHTML = b;
+});
+document.getElementById("return").innerHTML = b;
   document.getElementById("give uppage").style.display = "none";
   newNumber();
 });
-  document.getElementById("no").addEventListener("click", function() {
+document.getElementById("no").addEventListener("click", function() {
   document.getElementById("game").style.display = "block";
   document.getElementById("give uppage").style.display = "none";
 });
-}
+
 document.getElementById("give up").addEventListener("click", function() {
   document.getElementById("game").style.display = "none";
   document.getElementById("give uppage").style.display = "block";
