@@ -39,7 +39,7 @@ Pick the random 4 digit number!
 By: Justin Fu 傅嵩皓
 </h2>
 <h3>
-  v 3.1.1
+  v 3.1.2
 </h3>
 <div id="game">
   <p>
@@ -85,6 +85,7 @@ function giveUp(){
   b = "The answer was " + a;
   document.getElementById("return").innerHTML = b;
   document.getElementById("give uppage").style.display = "none";
+  newNumber();
 }
 function newNumber() {
   a = Math.floor((Math.random() * (9999 - 1000)) + 1000);
