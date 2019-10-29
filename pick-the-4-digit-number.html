@@ -66,6 +66,11 @@ By: Justin Fu 傅嵩皓
   <br>
   <a id="back">Back</a>
 </div>
+  <div style="display: none" id="give uppage">
+  Are you sure you want to give up?
+    <button style="color: red" id="yes">Yes</button>
+    <button style="color: green" id="no">No</button>
+  </div>
 <script>
 var a;
 newNumber();
@@ -76,6 +81,18 @@ function newNumber() {
 document.getElementById("help").addEventListener("click", function() {
   document.getElementById("game").style.display = "none";
   document.getElementById("helppage").style.display = "block";
+});
+document.getElementById("yes").addEventListener("click", function() {
+  document.getElementById("game").style.display = "block";
+  document.getElementById("give puppage").style.display = "block";
+});
+  document.getElementById("no").addEventListener("click", function() {
+  document.getElementById("game").style.display = "block";
+  document.getElementById("helppage").style.display = "none";
+});
+document.getElementById("give up").addEventListener("click", function() {
+  document.getElementById("game").style.display = "none";
+  document.getElementById("give uppage").style.display = "block";
 });
 document.getElementById("back").addEventListener("click", function() {
   document.getElementById("game").style.display = "block";
