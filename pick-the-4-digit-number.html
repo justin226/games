@@ -86,10 +86,12 @@ By: Justin Fu 傅嵩皓
 <script>
 var a;
 var b;
+var c;
 newNumber();
 checkLock();
 function checkLock(){
-  if(getCookie("locked") !== "false"){
+  c = getCookie("locked");
+  if(c !== "false"){
      document.getElementById("game").style.display = "none";
      document.getElementById("lock").style.display = "block";
   }
