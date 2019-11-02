@@ -125,7 +125,7 @@ document.getElementById("unlock").addEventListener("click", function(){
   if(document.getElementById("password").value === "password01"){
     document.getElementById("game").style.display = "block";
     document.getElementById("lock").style.display = "none";
-    document.cookie = "locked=false, path=/";
+    document.cookie = "locked=false";
   }
   else{
     document.getElementById("unlockable").innerHTML = "Wrong";
