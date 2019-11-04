@@ -87,10 +87,10 @@ document.getElementById("submit").addEventListener("click", function(){
   lo = parseInt(document.getElementById("min").value);
   a = Math.floor(Math.random()*(hi - lo) + lo);
   b = Math.random()*(hi - lo) + lo;
-  if(document.getEementById("whole").checked){
+  if(document.getElementById("whole").checked){
     document.getElementById("result").innerHTML = a;
   }
-  if(document.getEementById("decimal").checked){
+  if(document.getElementById("decimal").checked){
     document.getElementById("result").innerHTML = b;
   }
 });
