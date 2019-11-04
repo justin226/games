@@ -10,7 +10,7 @@ Random Number Generator
 Random Number Generator
 </h1>
 <h2>
-v 1.0.1
+v 1.0.2
 </h2>
 <hr>
 <div id="lock">
@@ -19,7 +19,7 @@ v 1.0.1
   <input type="submit" id="unlock" value="Submit">
   <span style="color: red" id="unlockable"></span>
 </div>
-<div id="game" style="display=none">
+<div id="game" style="display: none">
 Input Maximum Value 
 <input type="number" id="max">
 <br>
@@ -41,6 +41,7 @@ var a;
 var b;
 var hi;
 var lo;
+checkLock();
 function getCookie(cname) {
   var name = cname + "=";
   var decodedCookie = decodeURIComponent(document.cookie);
