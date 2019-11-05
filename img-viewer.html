@@ -16,7 +16,7 @@ Image Viewer
   document.getElementById("displayimage").addEventListener("click", function(){
     document.getElementById("image").removeAttribute("src");
     a = document.getElementById("url").value;
-    document.getElementById("image").addAttribute("src", a);
+    document.getElementById("image").setAttribute('src', a);
   });
 </script>
 </body>
