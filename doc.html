@@ -17,12 +17,31 @@ Coded this all by myself. No sources were needed.
     <button id="select">
       Select
     </button>
+    <button id="save">Save</button>
     <span id="num">You are viewing textbox 1</span><a id="x">❌</a>
     <input type="text" id="one" style="display: block">
     <input type="text" id="two" style="display: none">
     <input type="text" id="three" style="display: none">
     <input type="text" id="four" style="display: none">
     <script>
+      function getCookie(cname) {
+  var name = cname + "=";
+  var ca = document.cookie.split(';');
+  for(var i = 0; i < ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+      var save1;
+      var save2;
+      var save3;
+      var save4;
     document.getElementById("select").addEventListener("click", function() {
   if (document.getElementById("number").value == "1") {
     document.getElementById("one").style.display = "block";
@@ -66,7 +85,13 @@ document.getElementById("x").addEventListener("click", function() {
   document.getElementById("x").style.display = "none";
   document.getElementById("num").style.display = "none";
 });
-
+document.getElementById("save").addEventlistener("click", function(){
+  save1 = document.getElementById("1").value;
+  save2 = document.getElementById("2").value;
+  save3 = document.getElementById("3").value;
+  save4 = document.getElementById("4").value;
+  
+});
     </script>
   </body>
 
