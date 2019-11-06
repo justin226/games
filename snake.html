@@ -163,7 +163,7 @@
 	
 <header class="wrap">
                 <h1>Snake</h1>
-                <p class="score">Score: <span id="score_value">0</span></p>
+                <p class="score">Score: <span id="score_value">0</span> High Score:<span id="hiscore">0</span></p>
             </header>
             <canvas class="wrap" id="snake" width="320" height="320" tabindex="1"></canvas>
         
@@ -222,7 +222,7 @@
     // Snake
     var snake;
     var snake_dir;
-   var snake_next_dir;
+    var snake_next_dir;
     var snake_speed;
     
     // Food
@@ -300,6 +300,7 @@
     
     var altScore = function(score_val){
         ele_score.innerHTML = String(score_val);
+	if(document.getElementById("score_value").value > document.getElementById)
     }
     
     /////////////////////////////////////////////////////////////
