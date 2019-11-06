@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!--
+Coded this all by myself. No sources were needed.
+-->
+<html>
+
+  <body>
+    <h1>
+      Test
+    </h1>
+    <select id="number">
+      <option value="1" id="1">1</option>
+      <option value="2" id="2">2</option>
+      <option value="3" id="3">3</option>
+      <option value="4" id="4">4</option>
+    </select>
+    <button id="select">
+      Select
+    </button>
+    <span id="num">You are viewing textbox 1</span><a id="x">❌</a>
+    <input type="text" id="one" style="display: block">
+    <input type="text" id="two" style="display: none">
+    <input type="text" id="three" style="display: none">
+    <input type="text" id="four" style="display: none">
+    <script>
+    document.getElementById("select").addEventListener("click", function() {
+  if (document.getElementById("number").value == "1") {
+    document.getElementById("one").style.display = "block";
+    document.getElementById("two").style.display = "none";
+    document.getElementById("three").style.display = "none";
+    document.getElementById("four").style.display = "none";
+    document.getElementById("num").innerHTML = "You are viewing textbox 1"
+    document.getElementById("num").style.display = "inline";
+    document.getElementById("x").style.display = "inline";
+  }
+  if (document.getElementById("number").value == "2") {
+    document.getElementById("one").style.display = "none";
+    document.getElementById("two").style.display = "block";
+    document.getElementById("three").style.display = "none";
+    document.getElementById("four").style.display = "none";
+    document.getElementById("num").innerHTML = "You are viewing textbox 2"
+    document.getElementById("num").style.display = "inline";
+    document.getElementById("x").style.display = "inline";
+  }
+  if (document.getElementById("number").value == "3") {
+    document.getElementById("one").style.display = "none";
+    document.getElementById("two").style.display = "none";
+    document.getElementById("three").style.display = "block";
+    document.getElementById("four").style.display = "none";
+    document.getElementById("num").innerHTML = "You are viewing textbox 3";
+    document.getElementById("num").style.display = "inline";
+    document.getElementById("x").style.display = "inline";
+  }
+  if (document.getElementById("number").value == "4") {
+    document.getElementById("one").style.display = "none";
+    document.getElementById("two").style.display = "none";
+    document.getElementById("three").style.display = "none";
+    document.getElementById("four").style.display = "block";
+    document.getElementById("num").innerHTML = "You are viewing textbox 4"
+    document.getElementById("num").style.display = "inline";
+    document.getElementById("x").style.display = "inline";
+  }
+});
+
+document.getElementById("x").addEventListener("click", function() {
+  document.getElementById("x").style.display = "none";
+  document.getElementById("num").style.display = "none";
+});
+
+    </script>
+  </body>
+
+</html>
