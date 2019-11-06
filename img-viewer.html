@@ -12,15 +12,24 @@ Image Viewer
 <input type="url" id="url">
 <button id="displayimage">Display Image</button>
 <image id="image" alt="Cannot Display Image" style="display: none">
+  <span id="info"></span>
 <hr>
 <h5 style="color: light-gray">Free to Use</h5>
 <script>
   var a;
+  var height;
+  var width;
+  function showInfo(){
+    height = document.getElementById("image").height;
+    width = document.getElementById("image").width;
+    document.getElementById("info").innerHTML = "Image size " + width + " × " + height;
+  }
   document.getElementById("displayimage").addEventListener("click", function(){
     document.getElementById("image").removeAttribute("src");
     document.getElementById("image").style.display = "block";
     a = document.getElementById("url").value;
     document.getElementById("image").setAttribute('src', a);
+    showInfo();
   });
 </script>
 </body>
