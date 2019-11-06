@@ -300,7 +300,9 @@
     
     var altScore = function(score_val){
         ele_score.innerHTML = String(score_val);
-	if(document.getElementById("score_value").value > document.getElementById)
+	if(parseInt(document.getElementById("score_value").value) > parseInt(document.getElementById("hiscore").value)){
+		document.getElementById("hiscore").innerHTML= document.getElementById("score_value").value;
+	}
     }
     
     /////////////////////////////////////////////////////////////
