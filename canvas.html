@@ -17,10 +17,10 @@
       var ctx = canvas.getContext("2d");
       for(var o = 0; o < 10; o++){
         for(var i = 0; i < 10; i++){
-         red = Math.floor(Math.random()*255);
-         green = Math.floor(Math.random()*255);
-         blue = Math.floor(Math.random()*255);
-         ctx.fillStyle = rgb(red, green, blue);
+         red = Math.floor(Math.random()*99);
+         green = Math.floor(Math.random()*99);
+         blue = Math.floor(Math.random()*99);
+         ctx.fillStyle = "#" + red + green + blue;
          ctx.fillRect(a, b, 100, 100);
          a += 100;
        }
