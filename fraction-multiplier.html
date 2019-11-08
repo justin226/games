@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <style>
+  .input{
+  height: 50px;
+  width: 50px;
+  border-radius: 8px;
+}
+  </style>
+    <title>
+      Fraction Multiplier
+    </title>
+  </head>
+  <body>
+  <input type="number" class="input" id="1">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="number" class="input" id="2">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="number" class="input" id="r1">
+<br>
+-----------
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+-----------
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;
+-----------
+<br>
+<input type="number" class="input" id="3">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="number" class="input" id="4">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="number" class="input" id="r2">
+<br>
+<button id="go">
+Go!
+</button>
+<script>
+var one;
+var two;
+var three;
+var four;
+var rone;
+var rtwo;
+document.getElementById("go").addEventListener("click", function(){
+	one = parseInt(document.getElementById("1").value);
+  two = parseInt(document.getElementById("2").value);
+  three = parseInt(document.getElementById("3").value);
+  four = parseInt(document.getElementById("4").value);
+  rone = one * two;
+  rtwo = three * four;
+  document.getElementById("r1").setAttribute('value', rone);
+  document.getElementById("r2").setAttribute('value', rtwo);
+});
+</script>
+  </body>
+</html>
