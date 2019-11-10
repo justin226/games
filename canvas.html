@@ -20,7 +20,7 @@
          red = Math.floor(Math.random()*99);
          green = Math.floor(Math.random()*99);
          blue = Math.floor(Math.random()*99);
-         ctx.fillStyle = "#" + red + green + blue;
+         ctx.fillStyle = "#" + Math.random().toString(16).slice(2, 8);
          ctx.fillRect(a, b, 100, 100);
          a += 100;
        }
