@@ -7,43 +7,28 @@
   </head>
   <body>
     <canvas id="myCanvas" height="1000" width="1000">Your browser does not support canvas.</canvas>
-    <button id="draw">Draw it!</button>
-    <a id="adv"><u>Advanced Options</u>⇓</a>
-    <div id="advpart">
-      <span id="rows"></span>
-      <input onchange="changerows" id="rowsamount" type="range" min="1" max="100">
-      <span id="columns"></span>
-      <input onchange="changecolumns" id="columnsamount" type="range" min="1" max="100">
-    </div>
+   
     <script>
       var a = 0;
       var b = 0;
-      var c = "10";
-      var d = "10";
+      var c = 10;
+      var d = 10;
       var red;
       var green;
       var blue;
       var canvas = document.getElementById("myCanvas");
       var ctx = canvas.getContext("2d");
-      document.getElementById("draw").addEventListener("click", function(){
-        for(var o = 0; o < parseInt(c); o++){
-          for(var i = 0; i < parseInt(d); i++){
+      
+        for(var o = 0; o < c; o++){
+          for(var i = 0; i < d; i++){
           ctx.fillStyle = "#" + Math.random().toString(16).slice(2, 8);
           ctx.fillRect(a, b, 100, 100);
            a += 100;
         }
         a -= 1000;
-         b += 100;
+        b += 100;
         }
-      });
-      function changerows(){
-        c = document.getElementById("rowsamount").value;
-        document.getElementById("rows").innerHTML = c;
-      }
-      function chnagecolumns(){
-        d = document.getElementById("columnsamount").value;
-        document.getElementById("columns").innerHTML = d;
-      }
+      
     </script>
   </body>
 </html>
