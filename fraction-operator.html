@@ -88,13 +88,13 @@ document.getElementById("go").addEventListener("click", function(){
     rtwo = three;
   }
   else{
-    rone = one * four + two * three;
+    rone = (one * four) + (two * three);
     rtwo = three * four;
   }
   document.getElementById("r1").setAttribute('value', rone);
   document.getElementById("r2").setAttribute('value', rtwo);
   }
-  if(document.getElementById("choice").value == "+"){
+  if(document.getElementById("choice").value == "-"){
   one = parseInt(document.getElementById("1").value);
   two = parseInt(document.getElementById("2").value);
   three = parseInt(document.getElementById("3").value);
@@ -104,7 +104,7 @@ document.getElementById("go").addEventListener("click", function(){
     rtwo = three;
   }
   else{
-    rone = one * four - two * three;
+    rone = (one * four) - (two * three);
     rtwo = three * four;
   }
   document.getElementById("r1").setAttribute('value', rone);
