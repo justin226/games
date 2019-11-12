@@ -26,7 +26,11 @@
 <input type="number" class="input" id="r1">
 <br>
 -----------
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<select id="choice">
+		<option value="*">
+		<option value="/">
+	  </select>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 -----------
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
@@ -52,7 +56,8 @@ var four;
 var rone;
 var rtwo;
 document.getElementById("go").addEventListener("click", function(){
-	one = parseInt(document.getElementById("1").value);
+  if(document.getElementById("choice").value == "*"){
+  one = parseInt(document.getElementById("1").value);
   two = parseInt(document.getElementById("2").value);
   three = parseInt(document.getElementById("3").value);
   four = parseInt(document.getElementById("4").value);
@@ -60,6 +65,17 @@ document.getElementById("go").addEventListener("click", function(){
   rtwo = three * four;
   document.getElementById("r1").setAttribute('value', rone);
   document.getElementById("r2").setAttribute('value', rtwo);
+  }
+  if(document.getElementById("choice").value == "/"){
+  one = parseInt(document.getElementById("1").value);
+  two = parseInt(document.getElementById("2").value);
+  three = parseInt(document.getElementById("3").value);
+  four = parseInt(document.getElementById("4").value);
+  rone = one * four;
+  rtwo = three * two;
+  document.getElementById("r1").setAttribute('value', rone);
+  document.getElementById("r2").setAttribute('value', rtwo);
+  }
 });
 </script>
   </body>
