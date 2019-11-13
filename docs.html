@@ -1,1 +1,27 @@
-
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      Docs
+    </title>
+  </head>
+  <body>
+    <input type="text" style="resize: both" />
+    <br>
+    <button id="save">Save</button>
+    <button id="load">Load</button>
+    <script>
+      var a;
+      var b;
+      document.getElementById("text").innerHTML = localStorage.getItem("info");
+      document.getElementById("save").addEventListener("click", function(){
+        a = document.getElementById("text").value;
+        localStorage.setItem("info", a);
+      });
+      document.getElementById("load").addEventListener("click", function(){
+        b = localStorage.getItem("info");
+        document.getElementById("text").innerHTML = b;
+      });
+    </script>
+  </body>
+</html>
