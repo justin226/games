@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>
+    Mixed Number Operator
+  </title>
+</head>
+<body>
+  <input id="mn1n" style="text-align: middle; height: 50px; width:50px;" type="number">
+  &nbsp;&nbsp;
+  <input id="mn1f1" style="text-align: middle; height: 50px; width:50px;" type="number">
+  /
+  <input id="mn1f2" style="text-align: middle; height: 50px; width:50px;" type="number">
+  &nbsp;&nbsp;
+  x
+  &nbsp;&nbsp;
+  <input id="mn2n" style="text-align: middle; height: 50px; width:50px;" type="number">
+  &nbsp;&nbsp;
+  <input id="mn2f1" style="text-align: middle; height: 50px; width:50px;" type="number">
+  /
+  <input id="mn2f2" style="text-align: middle; height: 50px; width:50px;" type="number">
+  <br>
+  <button id="calc">Go!</button>
+  <br>
+  <span id="mnrn" style="text-align: middle; height: 50px; width:50px;"></span>
+  &nbsp;&nbsp;
+  <span id="mnrf1" style="text-align: middle; height: 50px; width:50px;"></span>
+  &nbsp;&nbsp;
+  /
+  &nbsp;&nbsp;
+  <span id="mnrf2" style="text-align: middle; height: 50px; width:50px;"></span>
+  <script>
+  var onen;
+  var twon;
+  var onefracone;
+  var twofracone;
+  var onefractwo;
+  var twofractwo;
+  var imoneone;
+  var imtwoone;
+  var imonetwo;
+  var imtwotwo;
+  var imrone
+  var imrtwo;
+  var imrn;
+  var countingmix;
+  var breakoutofloop;
+  
+    document.getElementById("calc").addEventListener("click", function(){
+      onen = parseInt(document.getElementById("mn1n").value);
+      twon = parseInt(document.getElementById("mn2n").value);
+      onefracone = parseInt(document.getElementById("mn1f1").value);
+      twofracone = parseInt(document.getElementById("mn2f1").value);
+      onefractwo = parseInt(document.getElementById("mn1f2").value);
+      twofractwo = parseInt(document.getElementById("mn2f2").value);
+      imoneone = (onen * onefractwo) + onefracone;
+      imtwoone = (twon * onefractwo) + twofracone;
+      imonetwo = onefractwo;
+      imtwotwo = twofractwo;
+      imrone = imoneone * imtwoone;
+      imrtwo = imonetwo * imtwotwo;
+      if(imrone > imtwo) 
+        countingmix = 1;
+        while(countingmix != "true"){
+          if((countingmix * imrtwo) > imrone){
+            breakoutofloop = "true";
+          }
+          else{
+            countingmix++;
+          }
+        }
+        imrn = countingmix;
+        imrone = imrone - (imrtwo * countingmix);
+      }
+      document.getElementById("mnrn").innerHTML = imrn;
+      document.getElementById("mnrf1").innerHTML = imrone;
+      document.getElementById("mnrf2").innerHTML = imrtwo;
+    });
+  </script>
+</body>
+</html>
