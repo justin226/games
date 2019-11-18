@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html>
+<head>
+	<style>
+		button {
+			border-radius: 4px;
+		}
+		#calc {
+			background-color: gray;
+		}
+	</style>
+</head>
 <body>
+	<div id="calc">
 <input type="text" id="input" style="width: 408px; height: 50px">
 <br>
 <button id="7" style="width: 100px">
@@ -48,15 +59,13 @@
 <button id="+" style="width: 100px">
 +
 </button>
-<div id="result">
-
 </div>
 <script>
 var a;
 var b;
 document.getElementById("go").addEventListener("click", function(){
 a = document.getElementById("input").value;
-document.getElementById("result").innerHTML = eval(a);
+document.getElementById("input").value = eval(a);
 });
 document.getElementById("1").addEventListener("click", function(){
   b = document.getElementById("input").value;
