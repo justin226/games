@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<body>
+<input type="text" id="input" style="width: 408px; height: 50px">
+<br>
+<button id="7" style="width: 100px">
+7
+</button>
+<button id="8" style="width: 100px">
+8
+</button>
+<button id="9" style="width: 100px">
+9
+</button>
+<button id="/" style="width: 100px">
+÷
+</button>
+<br>
+<button id="4" style="width: 100px">
+4
+</button>
+<button id="5" style="width: 100px">
+5
+</button>
+<button id="6" style="width: 100px">
+6
+</button>
+<button id="*" style="width: 100px">
+×
+</button>
+<br>
+<button id="1" style="width: 100px">
+1
+</button>
+<button id="2" style="width: 100px">
+2
+</button>
+<button id="3" style="width: 100px">
+3
+</button>
+<button id="-" style="width: 100px">
+-
+</button>
+<br>
+<button id="go" style="width: 308px">
+=
+</button>
+<button id="+" style="width: 100px">
++
+</button>
+<div id="result">
+
+</div>
+<script>
+var a;
+var b;
+document.getElementById("go").addEventListener("click", function(){
+a = document.getElementById("input").value;
+document.getElementById("result").innerHTML = eval(a);
+});
+document.getElementById("1").addEventListener("click", function(){
+  b = document.getElementById("input").value;
+	document.getElementById("input").value = b + "1";
+});
+document.getElementById("2").addEventListener("click", function(){
+	b = document.getElementById("input").value;
+	document.getElementById("input").value = b + "2";
+});
+document.getElementById("3").addEventListener("click", function(){
+	b = document.getElementById("input").value;
+	document.getElementById("input").value = b + "3";
+});
+document.getElementById("4").addEventListener("click", function(){
+	b = document.getElementById("input").value;
+	document.getElementById("input").value = b + "4";
+});
+document.getElementById("5").addEventListener("click", function(){
+	b = document.getElementById("input").value;
+	document.getElementById("input").value = b + "5";
+});
+document.getElementById("6").addEventListener("click", function(){
+	b = document.getElementById("input").value;
+	document.getElementById("input").value = b + "6";
+});
+document.getElementById("7").addEventListener("click", function(){
+	b = document.getElementById("input").value;
+	document.getElementById("input").value = b + "7";
+});
+document.getElementById("8").addEventListener("click", function(){
+	b = document.getElementById("input").value;
+	document.getElementById("input").value = b + "8";
+});
+document.getElementById("9").addEventListener("click", function(){
+	b = document.getElementById("input").value;
+	document.getElementById("input").value = b + "9";
+});
+document.getElementById("+").addEventListener("click", function(){
+	b = document.getElementById("input").value;
+	document.getElementById("input").innerHTML = b + "+";
+});
+document.getElementById("-").addEventListener("click", function(){
+	b = document.getElementById("input").value;
+	document.getElementById("input").value = b + "-";
+});
+document.getElementById("*").addEventListener("click", function(){
+	b = document.getElementById("input").value;
+	document.getElementById("input").value = b + "*";
+});
+document.getElementById("/").addEventListener("click", function(){
+	b = document.getElementById("input").value;
+	document.getElementById("input").value = b + "/";
+});
+</script>
+<script language="JavaScript">
+  /**
+    * Disable right-click of mouse, F12 key, and save key combinations on page
+    * By Arthur Gareginyan (arthurgareginyan@gmail.com)
+    * For full source code, visit https://mycyberuniverse.com
+    */
+  window.onload = function() {
+    document.addEventListener("contextmenu", function(e){
+      e.preventDefault();
+    }, false);
+    document.addEventListener("keydown", function(e) {
+    //document.onkeydown = function(e) {
+      // "I" key
+      if (e.ctrlKey && e.shiftKey && e.keyCode == 73) {
+        disabledEvent(e);
+      }
+      // "J" key
+      if (e.ctrlKey && e.shiftKey && e.keyCode == 74) {
+        disabledEvent(e);
+      }
+      // "S" key + macOS
+      if (e.keyCode == 83 && (navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)) {
+        disabledEvent(e);
+      }
+      // "U" key
+      if (e.ctrlKey && e.keyCode == 85) {
+        disabledEvent(e);
+      }
+      // "F12" key
+      if (event.keyCode == 123) {
+        disabledEvent(e);
+      }
+    }, false);
+    function disabledEvent(e){
+      if (e.stopPropagation){
+        e.stopPropagation();
+      } else if (window.event){
+        window.event.cancelBubble = true;
+      }
+      e.preventDefault();
+      return false;
+    }
+  };
+</script>
+</body>
+</html>
