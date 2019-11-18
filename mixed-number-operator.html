@@ -59,9 +59,9 @@
       imtwotwo = twofractwo;
       imrone = imoneone * imtwoone;
       imrtwo = imonetwo * imtwotwo;
-      if(imrone > imtwo) 
+      if(imrone > imtwo) {
         countingmix = 1;
-        while(countingmix != "true"){
+        while(breakoutofloop != "true"){
           if((countingmix * imrtwo) > imrone){
             breakoutofloop = "true";
           }
@@ -70,7 +70,7 @@
           }
         }
         imrn = countingmix;
-        imrone = imrone - (imrtwo * countingmix);
+        imrone -= imrtwo * countingmix;
       }
       document.getElementById("mnrn").innerHTML = imrn;
       document.getElementById("mnrf1").innerHTML = imrone;
