@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>
+Unlock
+</title>
+</head>
+<body>
+<div id="lock">
+  For security, Justin Fu has enforced locks on his pages/projects. To unlock them, enter the password:
+  <input type="password" id="password">
+  <input type="submit" id="unlock" value="Submit">
+  <span style="color: red" id="unlockable"></span>
+</div>
+<div id="game" style="display: none;">
+You have successfully unlocked pages.
+<br>
+<a href="https://justin226.github.io/games">Return to main page</a>
+</div>
+<script>
+function getCookie(cname) {
+  var name = cname + "=";
+  var decodedCookie = decodeURIComponent(document.cookie);
+  var ca = decodedCookie.split(';');
+  for(var i = 0; i < ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+function checkLock(){
+  c = getCookie("locked");
+  if(c !== "false"){
+     document.getElementById("game").style.display = "none";
+     document.getElementById("lock").style.display = "block";
+  }
+  else{
+    document.getElementById("lock").style.display = "none";
+    document.getElementById("game").style.display = "block";
+  }
+}
+document.getElementById("unlock").addEventListener("click", function(){
+  if(document.getElementById("password").value === "password01"){
+    document.getElementById("game").style.display = "block";
+    document.getElementById("lock").style.display = "none";
+    document.cookie = "locked=false";
+    document.getElementById("password").innerHTML = "";
+  }
+  else{
+    document.getElementById("unlockable").innerHTML = "Wrong";
+  }
+});
+</script>
+</body>
+</html>
