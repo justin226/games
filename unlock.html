@@ -14,10 +14,17 @@ Unlock
 </div>
 <div id="game" style="display: none;">
 You have successfully unlocked pages.
+  <button style="color: red" id="exit">
+    Exit
+  </button>
 <br>
 <a href="https://justin226.github.io/games">Return to main page</a>
 </div>
 <script>
+  document.getElementById("exit").addEventListener("click", function(){
+  document.cookie = "locked=true";
+  checkLock();
+});
 function getCookie(cname) {
   var name = cname + "=";
   var decodedCookie = decodeURIComponent(document.cookie);
