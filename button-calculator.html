@@ -12,6 +12,7 @@
 		#calc {
 			background-color: gray;
       width: 412px;
+      box-shadow: 10px 10px 5px #888888;
 		}
 	</style>
 </head>
@@ -58,7 +59,13 @@
 -
 </button>
 <br>
-<button id="go" style="width: 308px">
+<button id="x" style="width: 100px">
+&lt;--
+</button>
+<button id="0" style="width: 100px">
+0
+</button>
+<button id="go" style="width: 100px">
 =
 </button>
 <button id="+" style="width: 100px">
@@ -73,6 +80,14 @@ var b;
 document.getElementById("go").addEventListener("click", function(){
 a = document.getElementById("input").value;
 document.getElementById("input").value = eval(a);
+});
+document.getElementById("0").addEventListener("click", function(){
+  b = document.getElementById("input").value;
+	document.getElementById("input").value = b + "0";
+});
+document.getElementById("x").addEventListener("click", function(){
+  b = document.getElementById("input").value;
+	document.getElementById("input").value = "";
 });
 document.getElementById("1").addEventListener("click", function(){
   b = document.getElementById("input").value;
@@ -112,7 +127,7 @@ document.getElementById("9").addEventListener("click", function(){
 });
 document.getElementById("+").addEventListener("click", function(){
 	b = document.getElementById("input").value;
-	document.getElementById("input").innerHTML = b + "+";
+	document.getElementById("input").value = b + "+";
 });
 document.getElementById("-").addEventListener("click", function(){
 	b = document.getElementById("input").value;
