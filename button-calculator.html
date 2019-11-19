@@ -9,7 +9,7 @@
 		button {
 			border-radius: 4px;
 		}
-		#calc {
+		#game {
 			background-color: gray;
       width: 412px;
       box-shadow: 10px 10px 5px #888888;
@@ -17,7 +17,13 @@
 	</style>
 </head>
 <body>
-	<div id="calc">
+	<div id="lock">
+  Justin Fu has enforced a lock on this site to prevent teachers and admin snooping around in Justin Fu's site. To gain access, enter the password.
+  <input type="password" id="password">
+  <input type="submit" id="unlock" value="Submit">
+  <span style="color: red" id="unlockable"></span>
+</div>
+	<div id="game" style="display: none;">
 <input type="text" id="input" style="width: 408px; height: 50px">
 <br>
 <button id="7" style="width: 100px">
@@ -77,6 +83,44 @@
 <script>
 var a;
 var b;
+checkLock();
+function getCookie(cname) {
+  var name = cname + "=";
+  var decodedCookie = decodeURIComponent(document.cookie);
+  var ca = decodedCookie.split(';');
+  for(var i = 0; i < ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+function checkLock(){
+  c = getCookie("locked");
+  if(c !== "false"){
+     document.getElementById("game").style.display = "none";
+     document.getElementById("lock").style.display = "block";
+  }
+  else{
+    document.getElementById("lock").style.display = "none";
+    document.getElementById("game").style.display = "block";
+  }
+}
+document.getElementById("unlock").addEventListener("click", function(){
+  if(document.getElementById("password").value === "password01"){
+    document.getElementById("game").style.display = "block";
+    document.getElementById("lock").style.display = "none";
+    document.cookie = "locked=false";
+    document.getElementById("password").innerHTML = "";
+  }
+  else{
+    document.getElementById("unlockable").innerHTML = "Wrong";
+  }
+});
 document.getElementById("go").addEventListener("click", function(){
 a = document.getElementById("input").value;
 document.getElementById("input").value = eval(a);
