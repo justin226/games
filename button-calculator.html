@@ -80,6 +80,9 @@
 </div>
 <div id="alert">
 </div>
+	<button style="color: red" id="exit">
+    Exit
+  </button>
 	<a href="https://justin226.github.io/games">Return to Main Page</a>
 <script>
 var a;
@@ -100,6 +103,10 @@ function getCookie(cname) {
   }
   return "";
 }
+	document.getElementById("exit").addEventListener("click", function(){
+  document.cookie = "locked=true";
+  checkLock();
+});
 function checkLock(){
   c = getCookie("locked");
   if(c !== "false"){
