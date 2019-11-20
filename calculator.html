@@ -210,6 +210,17 @@ button {
  * and open the template in the editor.
  */
 checkLock();
+            document.getElementById("unlock").addEventListener("click", function(){
+  if(document.getElementById("password").value === "password01"){
+    document.getElementById("game").style.display = "block";
+    document.getElementById("lock").style.display = "none";
+    document.cookie = "locked=false";
+    document.getElementById("password").innerHTML = "";
+  }
+  else{
+    document.getElementById("unlockable").innerHTML = "Wrong";
+  }
+});
 function getCookie(cname) {
   var name = cname + "=";
   var decodedCookie = decodeURIComponent(document.cookie);
