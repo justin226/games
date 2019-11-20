@@ -80,6 +80,9 @@
     Exit
   </button>
 </div>
+	<button style="color: red; display: none;" id="exit">
+    Exit
+  </button>
 <div id="alert">
 </div>
 	
@@ -112,10 +115,12 @@ function checkLock(){
   if(c !== "false"){
      document.getElementById("game").style.display = "none";
      document.getElementById("lock").style.display = "block";
+	  document.getElementById("exit").style.display = "none";
   }
   else{
     document.getElementById("lock").style.display = "none";
     document.getElementById("game").style.display = "block";
+	  document.getElementById("exit").style.display = "block";
   }
 }
 document.getElementById("unlock").addEventListener("click", function(){
