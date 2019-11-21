@@ -216,7 +216,8 @@ checkLock();
     document.getElementById("game").style.display = "block";
     document.getElementById("lock").style.display = "none";
     document.cookie = "locked=false";
-    document.getElementById("password").innerHTML = "";
+    document.getElementById("password").value = "";
+    document.getElementById("unlockable").innerHTML = "";
   }
   else{
     document.getElementById("unlockable").innerHTML = "Wrong";
@@ -250,6 +251,8 @@ function checkLock(){
   else{
     document.getElementById("lock").style.display = "none";
     document.getElementById("game").style.display = "block";
+    document.getElementById("password").value = "";
+    document.getElementById("unlockable").innerHTML = "";
   }
 }
 var op1;
