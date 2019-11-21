@@ -119,6 +119,8 @@ function checkLock(){
     document.getElementById("lock").style.display = "none";
     document.getElementById("game").style.display = "block";
 	  document.getElementById("exit").style.display = "block";
+	  document.getElementById("password").value = "";
+    document.getElementById("unlockable").innerHTML = "";
   }
 }
 document.getElementById("unlock").addEventListener("click", function(){
@@ -126,7 +128,8 @@ document.getElementById("unlock").addEventListener("click", function(){
     document.getElementById("game").style.display = "block";
     document.getElementById("lock").style.display = "none";
     document.cookie = "locked=false";
-    document.getElementById("password").innerHTML = "";
+    document.getElementById("password").value = "";
+    document.getElementById("unlockable").innerHTML = "";
   }
   else{
     document.getElementById("unlockable").innerHTML = "Wrong";
