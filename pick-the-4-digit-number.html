@@ -40,7 +40,7 @@ Pick the random 4 digit number!
 By: Justin Fu 傅嵩皓
 </h2>
 <h3>
-  v 3.2.3
+  v 3.2.4
 </h3>
 <div id="lock">
   Justin Fu has enforced a lock on this site to prevent teachers and admin snooping around in Justin Fu's site. To gain access, enter the password.
@@ -117,6 +117,8 @@ function checkLock(){
   else{
     document.getElementById("lock").style.display = "none";
     document.getElementById("game").style.display = "block";
+    document.getElementById("password").value = "";
+    document.getElementById("unlockable").innerHTML = "";
   }
 }
 function newNumber() {
@@ -127,7 +129,8 @@ document.getElementById("unlock").addEventListener("click", function(){
     document.getElementById("game").style.display = "block";
     document.getElementById("lock").style.display = "none";
     document.cookie = "locked=false";
-    document.getElementById("password").innerHTML = "";
+    document.getElementById("password").value = "";
+    document.getElementById("unlockable").innerHTML = "";
   }
   else{
     document.getElementById("unlockable").innerHTML = "Wrong";
