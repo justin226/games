@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<title>
+Calculator
+</title>
+<head>
+</head>
+<body>
+<div id="lock">
+  Justin Fu has enforced a lock on this site to prevent teachers and admin snooping around in Justin Fu's site. To gain access, enter the password.
+  <input type="password" id="password">
+  <input type="submit" id="unlock" value="Submit">
+  <span style="color: red" id="unlockable"></span>
+</div>
+<div id="game" style="display: none;">
+<h1>
+Anywhere - Calculator
+</h1>
+<hr>
+Drag the following buttons into your bookmarks bar<br>
+<a role="button" href="javascript: var a = document.createElement('iframe'); a.setAttribute('src', "https://justin226.github.io/games/button-calculator"); a.setAttribute('id', "calchtml"); document.body.appendChild(a);">Add a Calculator</a>
+<br>
+<a role="button" href="javascript: var b = document.getElementById("calchtml"); document.body.removeChild(b);">Remove Calculator</a>
+<br>
+<button style="color: red" id="exit">
+    Exit
+  </button>
+</div>
+<script>
+checkLock();
+function getCookie(cname) {
+  var name = cname + "=";
+  var decodedCookie = decodeURIComponent(document.cookie);
+  var ca = decodedCookie.split(';');
+  for(var i = 0; i < ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+function checkLock(){
+  c = getCookie("locked");
+  if(c !== "false"){
+     document.getElementById("game").style.display = "none";
+     document.getElementById("lock").style.display = "block";
+  }
+  else{
+    document.getElementById("lock").style.display = "none";
+    document.getElementById("game").style.display = "block";
+    document.getElementById("password").value = "";
+    document.getElementById("unlockable").innerHTML = "";
+  }
+}
+document.getElementById("unlock").addEventListener("click", function(){
+  if(document.getElementById("password").value === "password01"){
+    document.getElementById("game").style.display = "block";
+    document.getElementById("lock").style.display = "none";
+    document.cookie = "locked=false";
+    document.getElementById("password").value = "";
+    document.getElementById("unlockable").innerHTML = "";
+  }
+  else{
+    document.getElementById("unlockable").innerHTML = "Wrong";
+  }
+});
+document.getElementById("exit").addEventListener("click", function(){
+  document.cookie = "locked=true";
+  checkLock();
+});
+</script>
+</body>
+</html>
