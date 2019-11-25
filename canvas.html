@@ -18,6 +18,7 @@
       <button style="color: red" id="exit">
     Exit
   </button>
+      <button id="redo">Cahnge Color</button>
       <br>
     </div>
     <a href="https://justin226.github.io/games">Return to Main Page</a>
@@ -67,6 +68,11 @@ document.getElementById("exit").addEventListener("click", function(){
   document.cookie = "locked=true";
   checkLock();
 });
+      doIt();
+      document.getElementById("redo").addEventListener("click", function(){
+      doIt();
+      });
+      function doIt(){
       var a = 0;
       var b = 0;
       var c = 10;
@@ -86,7 +92,7 @@ document.getElementById("exit").addEventListener("click", function(){
         a -= 1000;
         b += 100;
         }
-      
+      }
     </script>
     <script language="JavaScript">
   /**
