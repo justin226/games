@@ -46,6 +46,7 @@ document.getElementById("submit").addEventListener("click", function(){
       elementtype = document.getElementById("ae").value;
       element = document.createElement(elementtype);
       element.setAttribute('id', getId);
+      element.innerHTML = innerhtml;
       document.body.appendChild(element);
     }
     if(document.getElementById("r").checked){
