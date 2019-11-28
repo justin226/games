@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>
+Create a document
+</title>
+</head>
+<body>
+<div id="addon">
+Set/Remove Attribute<input type="radio" name="addontype" id="sra" checked>
+Add/Remove Element<input type="radio" name="addontype" id="are">
+<br>
+Add/Set<input type="radio" name="asr" id="as" checked>
+Remove<input type="radio" name="asr" id="r">
+<br>
+Attribute/Element:<input type="text" id="ae">
+<br>
+InnerHTML/Value (Leave blank for remove):<input type="text" id="value">
+<br>
+Id:<input type="text" id="id">
+<br>
+<button id="submit">Go</button>
+</div>
+<script>
+var getId;
+var element;
+var innerhtml;
+var elementtype;
+document.getElementById("submit").addEventListener("click", function(){
+  if(document.getElementById("sra").checked){
+    if(document.getElementById("as").checked){
+      getId = document.getElementById("id").value;
+      element = document.getElementById(getId);
+      element.setAttribute(document.getElementById("ae").value, document.getElementById("value").value);
+    }
+    if(document.getElementById("r").checked){
+      getId = document.getElementById("id").value;
+      element = document.getElementById(getId);
+      element.removeAttribute(document.getElementById("ae").value);
+    }
+  }
+  if(document.getElementById("are").checked){
+    if(document.getElementById("as").checked){
+      getId = document.getElementById("id").value;
+      innerhtml = document.getElementById("value").value;
+      elementtype = document.getElementById("ae").value;
+      element = document.createElement(elementtype);
+      element.setAttribute('id', getId);
+      document.body.appendChild(element);
+    }
+    if(document.getElementById("r").checked){
+      getId = document.getElementById("id").value;
+      element = document.getElementById(getId);
+      document.body.removeChild(element);
+    }
+  }
+});
+</script>
+</body>
+</html>
