@@ -10,7 +10,8 @@ Create a document
 Set/Remove Attribute<input type="radio" name="addontype" id="sra" checked>
 Add/Remove Element<input type="radio" name="addontype" id="are">
 <br>
-Add/Set<input type="radio" name="asr" id="as" checked>
+Add<input type="radio" name="asr" id="a" checked>
+Set<input type="radio" name="asr" id="s" checked>
 Remove<input type="radio" name="asr" id="r">
 <br>
 Attribute/Element:<input type="text" id="ae">
@@ -28,7 +29,12 @@ var innerhtml;
 var elementtype;
 document.getElementById("submit").addEventListener("click", function(){
   if(document.getElementById("sra").checked){
-    if(document.getElementById("as").checked){
+    if(document.getElementById("a").checked){
+      getId = document.getElementById("id").value;
+      element = document.getElementById(getId);
+      element.setAttribute(document.getElementById("ae").value, document.getElementById("value").value);
+    }
+    if(document.getElementById("s").checked){
       getId = document.getElementById("id").value;
       element = document.getElementById(getId);
       element.setAttribute(document.getElementById("ae").value, document.getElementById("value").value);
@@ -40,7 +46,7 @@ document.getElementById("submit").addEventListener("click", function(){
     }
   }
   if(document.getElementById("are").checked){
-    if(document.getElementById("as").checked){
+    if(document.getElementById("a").checked){
       getId = document.getElementById("id").value;
       innerhtml = document.getElementById("value").value;
       elementtype = document.getElementById("ae").value;
@@ -48,6 +54,13 @@ document.getElementById("submit").addEventListener("click", function(){
       element.setAttribute('id', getId);
       element.innerHTML = innerhtml;
       document.body.appendChild(element);
+    }
+    if(document.getElementById("s").checked){
+      getId = document.getElementById("id").value;
+      innerhtml = document.getElementById("value").value;
+      elementtype = document.getElementById("ae").value;
+      element = document.getElementById(getId);
+      element.innerHTML = innerhtml;
     }
     if(document.getElementById("r").checked){
       getId = document.getElementById("id").value;
