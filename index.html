@@ -21,6 +21,9 @@ header {
 </style>
 </head>
 <body>
+<header id="mobilesite" style="display: none;">
+  You are using the mobile version. Click <button id="turnoffmobile">here</button> to turn off mobile mode.
+</header>
 <header>
   <h1>
     This is Justin Fu's Main Games Webpage!
@@ -79,6 +82,25 @@ header {
   </p>
   </div>
   </footer>
+  <script>
+    function turnOnMobile(){
+      var meta = document.createElement('meta');
+      meta.setAttribute('name', "viewport");
+      meta.setAttribute('content', "width=device-width, initial-scale=1.0");
+      meta.setAttribute('id', "meta");
+      document.head.appendChild(meta);
+    }
+    function turnOffMobile(){
+      document.head.removeChild(document.getElementById("meta"););
+    }
+    var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+		var element = document.getElementById('mobilesite');
+		if (isMobile) {
+  			element.style.display = "block";
+      
+		}
+  </script>
+  
   <script language="JavaScript">
   /**
     * Disable right-click of mouse, F12 key, and save key combinations on page
