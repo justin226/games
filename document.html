@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html onbeforeunload="return check();">
+  <head onbeforeunload="return check();">
+    <title>
+      Justin Fu Docs
+    </title>
+  </head>
+  <body onbeforeunload="check();">
+    <input type="text" style="resizable: both" id="input">
+    <br>
+    <button id="save">Save</button>
+    <script>
+      var text;
+      load();
+      function
+      function load(){
+        text = localStorage.text;
+        document.getElementById("input").value = text;
+      }
+      function check(){
+        if(document.getElementById("input") != localStorage.text){
+          return false;
+        }
+        else{
+          return true;
+        }
+      }
+      document.getElementById("save").addEventListener("click", function(){
+        if(prompt("Are you sure you would like to overwrite the previous save?")){
+          save();
+        }
+      });
+      function save(){
+        text = document.getElementById("input").value;
+        localStorage.text = text;
+      }
+    </script>
+  </body>
+</html>
