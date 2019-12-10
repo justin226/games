@@ -88,6 +88,8 @@
 <script>
 var a;
 var b;
+	var one;
+	var two;
 checkLock();
 function getCookie(cname) {
   var name = cname + "=";
@@ -137,7 +139,9 @@ document.getElementById("unlock").addEventListener("click", function(){
 });
 document.getElementById("go").addEventListener("click", function(){
 a = document.getElementById("input").value;
-document.getElementById("input").value = eval(a);
+one = a.replace("×", "*");
+two = one.replace("÷", "/");
+document.getElementById("input").value = eval(two);
 });
 document.getElementById("0").addEventListener("click", function(){
   b = document.getElementById("input").value;
@@ -193,11 +197,11 @@ document.getElementById("-").addEventListener("click", function(){
 });
 document.getElementById("*").addEventListener("click", function(){
 	b = document.getElementById("input").value;
-	document.getElementById("input").value = b + "*";
+	document.getElementById("input").value = b + "×";
 });
 document.getElementById("/").addEventListener("click", function(){
 	b = document.getElementById("input").value;
-	document.getElementById("input").value = b + "/";
+	document.getElementById("input").value = b + "÷";
 });
 </script>
 <script language="JavaScript">
