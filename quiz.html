@@ -23,7 +23,7 @@
     <script>
       var firstNumber;
       var secondNumber;
-      var operationList = ["+", "-", "×", "÷"];
+      var operationList = ["+", "-", "×"];
       var operation;
       var answer;
       newNumbers();
@@ -31,7 +31,7 @@
       function newNumbers() {
         firstNumber = Math.floor(Math.random() * 11);
         secondNumber = Math.floor(Math.random() * 11);
-        operation = operationList[Math.floor(Math.random() * 4)]
+        operation = operationList[Math.floor(Math.random() * 3)]
         document.getElementById("question").innerHTML = firstNumber + " " + operation + " " + secondNumber + " =";
         if (operation === "+") {
           answer = firstNumber + secondNumber
@@ -41,9 +41,6 @@
         };
         if (operation === "×") {
           answer = firstNumber * secondNumber
-        };
-        if (operation === "÷") {
-          answer = firstNumber / secondNumber
         };
       }
       document.getElementById("go").addEventListener("click", function() {
