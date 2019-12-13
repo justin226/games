@@ -20,11 +20,14 @@
 <script>
 var firstNumber;
 var secondNumber;
-var operation = [];
+var operationList = ["+", "-", "×", "÷"];
+  var operation;
   newNumbers();
   function newNumbers(){
     firstNumber = Math.floor(Math.random() * 11);
     secondNumber = Math.floor(Math.random() * 11);
+    operation = operationList[Math.floor(Math.random()*5)]
+    document.getElementById();
   }
   checkLock();
 function getCookie(cname) {
