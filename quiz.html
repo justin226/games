@@ -22,12 +22,14 @@ var firstNumber;
 var secondNumber;
 var operationList = ["+", "-", "×", "÷"];
   var operation;
+  var answer;
   newNumbers();
   function newNumbers(){
     firstNumber = Math.floor(Math.random() * 11);
     secondNumber = Math.floor(Math.random() * 11);
     operation = operationList[Math.floor(Math.random()*5)]
-    document.getElementById();
+    document.getElementById("question").innerHTML = firstNumber + " " + operation + " " secondNumber;
+    
   }
   checkLock();
 function getCookie(cname) {
