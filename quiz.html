@@ -15,10 +15,22 @@
       <span style="color: red" id="unlockable"></span>
     </div>
     <div id="game" style="display: none">
-      <div id="question"></div>
-      <input type="number" id="answer">
-      <button id="go">Submit</button>
-      <div id="result"></div>
+      <div id="quiz">
+        <div id="question"></div>
+        <input type="number" id="answer">
+        <button id="go">Submit</button>
+        <div id="result"></div>
+        <div id="score">Score: 0</div>
+        <div id="questions">0</div>
+      </div>
+      <div id="results" style="display: none">
+        <div id="overall-score">
+        </div>
+        <div id="correctquestions">
+        </div>
+        <div id="wrongquestions">
+        </div>
+      </div>
     </div>
     <script>
       var firstNumber;
@@ -26,6 +38,11 @@
       var operationList = ["+", "-", "×"];
       var operation;
       var answer;
+      var subScore = 5;
+      var score = 0;
+      var correct = 0;
+      var questions = 0;
+      var incorrect = 0;
       newNumbers();
 
       function newNumbers() {
@@ -34,13 +51,13 @@
         operation = operationList[Math.floor(Math.random() * 3)]
         document.getElementById("question").innerHTML = firstNumber + " " + operation + " " + secondNumber + " =";
         if (operation === "+") {
-          answer = firstNumber + secondNumber
+          answer = firstNumber + secondNumber;
         };
         if (operation === "-") {
-          answer = firstNumber - secondNumber
+          answer = firstNumber - secondNumber;
         };
         if (operation === "×") {
-          answer = firstNumber * secondNumber
+          answer = firstNumber * secondNumber;
         };
       }
       document.getElementById("go").addEventListener("click", function() {
@@ -52,12 +69,14 @@
           setTimeout(function() {
             document.getElementById("result").innerHTML = "";
           }, 1000);
+          addScore();
         } else {
           document.getElementById("result").setAttribute("style", "color: red");
           document.getElementById("result").innerHTML = "Wrong";
           setTimeout(function() {
             document.getElementById("result").innerHTML = "";
           }, 1000);
+          subtractScore();
         }
       });
       checkLock();
@@ -105,7 +124,31 @@
         document.cookie = "locked=true";
         checkLock();
       });
-
+      function addScore(){
+        score = score + (10 - Math.floor(score / 10));
+        document.getElementById("score").innerHTML = "Score: " + score;
+        if(score > 99){
+          correct++;
+          questions++;
+          showResults();
+        }
+        else{
+          questions++;
+          correct++;
+        }
+      }
+      function subtractScore(){
+        score = score - subScore++;
+        questions++;
+        document.getElementById("score").innerHTML = "Score: " + score;
+        incorrect++;
+      }
+      function showResults(){
+        document.getElementById("overall score").innerHTML = correct + " / " + questions;
+        document.getElementById("correctquestions").innerHTML = correct;
+        document.getElementById("wrongquestions").innerHTML = incorrect;
+        document.getElementById("results").style.display = "block";
+      }
     </script>
   </body>
 
