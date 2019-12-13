@@ -1,81 +1,115 @@
 <!DOCTYPE html>
 <html>
+
   <head>
     <title>
       The Math Quiz
     </title>
   </head>
+
   <body>
     <div id="lock">
-  Justin Fu has enforced a lock on this site to prevent unauthorized people snooping around in Justin Fu's site. To gain access, enter the password.
-  <input type="password" id="password">
-  <input type="submit" id="unlock" value="Submit">
-  <span style="color: red" id="unlockable"></span>
-</div>
-<div id="game" style="display: none">
-  <div id="question"></div>
-  <input type="number" id="answer">
-  <button id="go">Go!</button>
-</div>
-<script>
-var firstNumber;
-var secondNumber;
-var operationList = ["+", "-", "×", "÷"];
-  var operation;
-  var answer;
-  newNumbers();
-  function newNumbers(){
-    firstNumber = Math.floor(Math.random() * 11);
-    secondNumber = Math.floor(Math.random() * 11);
-    operation = operationList[Math.floor(Math.random()*5)]
-    document.getElementById("question").innerHTML = firstNumber + " " + operation + " " secondNumber;
-    
-  }
-  checkLock();
-function getCookie(cname) {
-  var name = cname + "=";
-  var decodedCookie = decodeURIComponent(document.cookie);
-  var ca = decodedCookie.split(';');
-  for(var i = 0; i < ca.length; i++) {
-    var c = ca[i];
-    while (c.charAt(0) == ' ') {
-      c = c.substring(1);
-    }
-    if (c.indexOf(name) == 0) {
-      return c.substring(name.length, c.length);
-    }
-  }
-  return "";
-}
-function checkLock(){
-  c = getCookie("locked");
-  if(c !== "false"){
-     document.getElementById("game").style.display = "none";
-     document.getElementById("lock").style.display = "block";
-  }
-  else{
-    document.getElementById("lock").style.display = "none";
-    document.getElementById("game").style.display = "block";
-    document.getElementById("password").value = "";
-    document.getElementById("unlockable").innerHTML = "";
-  }
-}
-document.getElementById("unlock").addEventListener("click", function(){
-  if(document.getElementById("password").value === "jFu090226"){
-    document.getElementById("game").style.display = "block";
-    document.getElementById("lock").style.display = "none";
-    document.cookie = "locked=false";
-    document.getElementById("password").value = "";
-    document.getElementById("unlockable").innerHTML = "";
-  }
-  else{
-    document.getElementById("unlockable").innerHTML = "Wrong";
-  }
-});
-document.getElementById("exit").addEventListener("click", function(){
-  document.cookie = "locked=true";
-  checkLock();
-});
-</script>
+      Justin Fu has enforced a lock on this site to prevent unauthorized people snooping around in Justin Fu's site. To gain access, enter the password.
+      <input type="password" id="password">
+      <input type="submit" id="unlock" value="Submit">
+      <span style="color: red" id="unlockable"></span>
+    </div>
+    <div id="game" style="display: none">
+      <div id="question"></div>
+      <input type="number" id="answer">
+      <button id="go">Submit</button>
+      <div id="result"></div>
+    </div>
+    <script>
+      var firstNumber;
+      var secondNumber;
+      var operationList = ["+", "-", "×", "÷"];
+      var operation;
+      var answer;
+      newNumbers();
+
+      function newNumbers() {
+        firstNumber = Math.floor(Math.random() * 11);
+        secondNumber = Math.floor(Math.random() * 11);
+        operation = operationList[Math.floor(Math.random() * 4)]
+        document.getElementById("question").innerHTML = firstNumber + " " + operation + " " + secondNumber + " =";
+        if (operation === "+") {
+          answer = firstNumber + secondNumber
+        };
+        if (operation === "-") {
+          answer = firstNumber - secondNumber
+        };
+        if (operation === "×") {
+          answer = firstNumber * secondNumber
+        };
+        if (operation === "÷") {
+          answer = firstNumber / secondNumber
+        };
+      }
+      document.getElementById("go").addEventListener("click", function() {
+        if (parseInt(document.getElementById("answer").value) == answer) {
+          document.getElementById("result").setAttribute("style", "color: green");
+          document.getElementById("result").innerHTML = "Correct!";
+          newNumbers();
+          document.getElementById("answer").value = "";
+          setTimeout(function() {
+            document.getElementById("result").innerHTML = "";
+          }, 1000);
+        } else {
+          document.getElementById("result").setAttribute("style", "color: red");
+          document.getElementById("result").innerHTML = "Wrong";
+          setTimeout(function() {
+            document.getElementById("result").innerHTML = "";
+          }, 1000);
+        }
+      });
+      checkLock();
+
+      function getCookie(cname) {
+        var name = cname + "=";
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var ca = decodedCookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+          var c = ca[i];
+          while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+          }
+          if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+          }
+        }
+        return "";
+      }
+
+      function checkLock() {
+        c = getCookie("locked");
+        if (c !== "false") {
+          document.getElementById("game").style.display = "none";
+          document.getElementById("lock").style.display = "block";
+        } else {
+          document.getElementById("lock").style.display = "none";
+          document.getElementById("game").style.display = "block";
+          document.getElementById("password").value = "";
+          document.getElementById("unlockable").innerHTML = "";
+        }
+      }
+      document.getElementById("unlock").addEventListener("click", function() {
+        if (document.getElementById("password").value === "jFu090226") {
+          document.getElementById("game").style.display = "block";
+          document.getElementById("lock").style.display = "none";
+          document.cookie = "locked=false";
+          document.getElementById("password").value = "";
+          document.getElementById("unlockable").innerHTML = "";
+        } else {
+          document.getElementById("unlockable").innerHTML = "Wrong";
+        }
+      });
+      document.getElementById("exit").addEventListener("click", function() {
+        document.cookie = "locked=true";
+        checkLock();
+      });
+
+    </script>
   </body>
+
 </html>
