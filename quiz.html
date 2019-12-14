@@ -43,12 +43,11 @@
       var correct = 0;
       var questions = 0;
       var incorrect = 0;
-      newNumbers();
-
+      newNumbers();();
       function newNumbers() {
         firstNumber = Math.floor(Math.random() * 11);
         secondNumber = Math.floor(Math.random() * 11);
-        operation = operationList[Math.floor(Math.random() * 3)]
+        operation = operationList[Math.floor(Math.random() * 3)];
         document.getElementById("question").innerHTML = firstNumber + " " + operation + " " + secondNumber + " =";
         if (operation === "+") {
           answer = firstNumber + secondNumber;
@@ -80,7 +79,6 @@
         }
       });
       checkLock();
-
       function getCookie(cname) {
         var name = cname + "=";
         var decodedCookie = decodeURIComponent(document.cookie);
@@ -124,31 +122,36 @@
         document.cookie = "locked=true";
         checkLock();
       });
-      function addScore(){
+
+      function addScore() {
         score = score + (10 - Math.floor(score / 10));
         document.getElementById("score").innerHTML = "Score: " + score;
-        if(score > 99){
+        if (score > 99) {
           correct++;
           questions++;
           showResults();
-        }
-        else{
+        } else {
           questions++;
           correct++;
         }
       }
-      function subtractScore(){
+
+      function subtractScore() {
         score = score - subScore++;
         questions++;
         document.getElementById("score").innerHTML = "Score: " + score;
         incorrect++;
       }
-      function showResults(){
-        document.getElementById("overall score").innerHTML = correct + " / " + questions;
-        document.getElementById("correctquestions").innerHTML = correct;
-        document.getElementById("wrongquestions").innerHTML = incorrect;
+
+      function showResults() {
+        alert();
+        document.getElementById("overall-score").innerHTML = "Score: " + correct + " / " + questions;
+        document.getElementById("correctquestions").innerHTML = "Questions correct: " + correct;
+        document.getElementById("wrongquestions").innerHTML = "Questions incorrect: " + incorrect;
         document.getElementById("results").style.display = "block";
+        document.getElementById("quiz").style.display = "none";
       }
+
     </script>
   </body>
 
