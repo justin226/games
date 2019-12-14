@@ -43,7 +43,9 @@
       var correct = 0;
       var questions = 0;
       var incorrect = 0;
-      newNumbers();();
+      newNumbers();
+      
+
       function newNumbers() {
         firstNumber = Math.floor(Math.random() * 11);
         secondNumber = Math.floor(Math.random() * 11);
@@ -79,6 +81,7 @@
         }
       });
       checkLock();
+
       function getCookie(cname) {
         var name = cname + "=";
         var decodedCookie = decodeURIComponent(document.cookie);
@@ -144,7 +147,6 @@
       }
 
       function showResults() {
-        alert();
         document.getElementById("overall-score").innerHTML = "Score: " + correct + " / " + questions;
         document.getElementById("correctquestions").innerHTML = "Questions correct: " + correct;
         document.getElementById("wrongquestions").innerHTML = "Questions incorrect: " + incorrect;
