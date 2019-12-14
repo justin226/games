@@ -21,7 +21,7 @@
         <button id="go">Submit</button>
         <div id="result"></div>
         <div id="score">Score: 0</div>
-        <div id="questions">0</div>
+        <div id="questions">Questions answered: 0</div>
       </div>
       <div id="results" style="display: none">
         <div id="overall-score">
@@ -44,8 +44,6 @@
       var questions = 0;
       var incorrect = 0;
       newNumbers();
-      
-
       function newNumbers() {
         firstNumber = Math.floor(Math.random() * 11);
         secondNumber = Math.floor(Math.random() * 11);
@@ -61,6 +59,8 @@
           answer = firstNumber * secondNumber;
         };
       }
+
+      
       document.getElementById("go").addEventListener("click", function() {
         if (parseInt(document.getElementById("answer").value) == answer) {
           document.getElementById("result").setAttribute("style", "color: green");
@@ -137,6 +137,7 @@
           questions++;
           correct++;
         }
+        document.getElementById("questions").innerHTML = "Questions answered: " + questions;
       }
 
       function subtractScore() {
@@ -144,6 +145,7 @@
         questions++;
         document.getElementById("score").innerHTML = "Score: " + score;
         incorrect++;
+        document.getElementById("questions").innerHTML = "Questions answered: " + questions;
       }
 
       function showResults() {
