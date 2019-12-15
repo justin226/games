@@ -148,8 +148,11 @@ document.getElementById("0").addEventListener("click", function(){
 	document.getElementById("input").value = b + "0";
 });
 document.getElementById("x").addEventListener("click", function(){
+	var backspace = document.getElementById("x").value;
+  backspace = document.getElementById("input").value;
+	backspace = backspace.slice(0, backspace.length - 1);
   b = document.getElementById("input").value;
-	document.getElementById("input").value = "";
+	document.getElementById("input").value = backspace;
 });
 document.getElementById("1").addEventListener("click", function(){
   b = document.getElementById("input").value;
