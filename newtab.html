@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      Open
+    </title>
+  </head>
+  <body>
+    <input id="href" type="text"><br><button id="go">GO</button>
+    <script>
+      document.getElementById("go").addEventListener("click", function(){
+        var a = document.createElement("a");
+        a.setAttribute("href", document.getElementById("href").value);
+        document.body.appendChild(a);
+      });
+    </script>
+  </body>
+</html>
