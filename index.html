@@ -25,6 +25,10 @@ footer {
 </style>
 </head>
 <body>
+	<div id="sandbox">
+	This page is being sandboxed.
+	</div>
+	<div id="site" style="display: none">
 <header id="mobilesite" style="display: none;">
   You are using the mobile version. Click <button id="turnoffmobile">here</button> to turn off mobile mode.
 </header>
@@ -91,7 +95,20 @@ footer {
   </p>
   </div>
   </footer>
+	</div>
   <script>
+	  if ( window.location !== window.parent.location ) 
+    { 
+      
+        // The page is in an iFrames 
+        document.getElementById("sandbox").style.display="none"; 
+    }  
+    else { 
+          
+        // The page is not in an iFrame 
+	    document.getElementById("sandbox").style.display="none";
+        document.getElementById("site").style.display = "block";
+    }
     function turnOnMobile(){
       var meta = document.createElement('meta');
       meta.setAttribute('name', "viewport");
