@@ -96,7 +96,7 @@ footer {
   </div>
   </footer>
 	</div>
-  <script>
+  <script>try{
 	  if ( window.location !== window.parent.location ) 
     { 
       
@@ -107,6 +107,9 @@ footer {
           
         // The page is not in an iFrame 
 	    document.getElementById("sandbox").style.display="none";
+        document.getElementById("site").style.display = "block";
+    }}catch(err){
+    document.getElementById("sandbox").style.display="none";
         document.getElementById("site").style.display = "block";
     }
     function turnOnMobile(){
