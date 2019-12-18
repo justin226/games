@@ -105,14 +105,8 @@ footer {
         // The page is in an iFrames 
         document.getElementById("sandbox").style.display="none"; 
 	    alert("For security reasons, framing is not allowed; click ok to remove the frames.")
-	    try{
-	    parent.document.body.removeChild(this);
-	    } catch(err){
-		    try{
-	    parent.document.head.removeChild(this);
-		    } catch(err){
-	    parent.document.removeChild(this);
-		    }
+	    for(var count = 1; true; count++){
+	    	parent.document.body.removeChild(document.getElementsByTagName("iframe")[count]);
 	    }
     }  
     else { 
