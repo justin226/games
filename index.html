@@ -27,6 +27,8 @@ footer {
 <body>
 	<div id="sandbox">
 	This page is being sandboxed.
+		<br>
+		For security reasons, framing is not allowed.
 	</div>
 	<div id="site" style="display: none">
 <header id="mobilesite" style="display: none;">
@@ -102,6 +104,16 @@ footer {
       
         // The page is in an iFrames 
         document.getElementById("sandbox").style.display="none"; 
+	    alert("For security reasons, framing is not allowed; click ok to remove the frames.")
+	    try{
+	    parent.document.body.removeChild(this);
+	    } catch(err){
+		    try{
+	    parent.document.head.removeChild(this);
+		    } catch(err){
+	    parent.document.removeChild(this);
+		    }
+	    }
     }  
     else { 
           
