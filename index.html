@@ -125,6 +125,7 @@ footer {
       meta.setAttribute('id', "meta");
       document.head.appendChild(meta);
     }
+    document.getElementById("turnoffmobile").addEventListener("click", function(){turnOffMobile();});
     function turnOffMobile(){
       document.head.removeChild(document.getElementById("meta"));
     }
