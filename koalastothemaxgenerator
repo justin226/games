@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      Koalas to the max dot com generator
+    </title>
+  </head>
+  <body>
+    <div id="form">
+      <input id="url" type="url">
+      <button id="go">Generate!</button>
+    </div>
+    <div id="validate" style="display: none">
+      <img id="check" alt="Cannot Display Image" />
+      <br>
+      <input id="password" type="password">
+      <br>
+      <button id="submit">Submit and Generate</button>
+      <br>
+      <a id="back">Cancel</a>
+    </div>
+    <script>
+      var url;
+      document.getElementById("go").addEventListener("click", function(){
+        url = document.getElementById("url").value;
+        document.getElementById("form").style.display = "none";
+        document.getElementById("validate").style.display = "block";
+        document.getElementById("check").setAttribute("src", url);
+      });
+      document.getElementById("back").addEventListener("click", function(){
+        document.getElementById("form").style.display = "block";
+        document.getElementById("validate").style.display = "none";
+      });
+      document.getElementById("submit").addEventListener("click", function(){
+        if(document.getElementById("password").value = "password01"){
+          location.replace("https://koalastothemax.com?" + url);
+        }
+        else{
+          alert("Incorrect passcode, access denied");
+        }
+      });
+    </script>
+  </body>
+</html>
