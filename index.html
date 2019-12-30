@@ -103,7 +103,7 @@ footer {
     { 
       
         // The page is in an iFrames 
-        document.getElementById("sandbox").style.display="none"; 
+        
 	    alert("For security reasons, framing is not allowed; click ok to remove the frames.")
 	    for(var count = 1; true; count++){
 	    	parent.document.body.removeChild(document.getElementsByTagName("iframe")[count]);
@@ -122,12 +122,11 @@ footer {
       var meta = document.createElement('meta');
       meta.setAttribute('name', "viewport");
       meta.setAttribute('content', "width=device-width, initial-scale=1.0");
-      meta.setAttribute('id', "meta");
       document.head.appendChild(meta);
     }
     document.getElementById("turnoffmobile").addEventListener("click", function(){turnOffMobile();});
     function turnOffMobile(){
-      document.head.removeChild(document.getElementById("meta"));
+      document.head.removeChild(document.getElemenstByTagName("meta")[0]);
     }
     var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 		var element = document.getElementById('mobilesite');
