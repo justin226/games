@@ -1,13 +1,24 @@
 <!DOCTYPE html>
 <html>
+
   <head>
+    <style>
+      iframe {
+        height: 550px;
+        width: 550px;
+        resize: both;
+        overflow: auto;
+      }
+
+    </style>
     <title>
       Koalas to the max dot com generator
     </title>
   </head>
+
   <body>
     <div id="form">
-      <input id="url" type="url">
+      <input id="url" type="url" placeholder="Enter Image URL here">
       <button id="go">Generate!</button>
     </div>
     <div id="validate" style="display: none">
@@ -15,30 +26,84 @@
       <br>
       <input id="password" type="password">
       <br>
-      <button id="submit">Submit and Generate</button>
+      <button id="submit" style="display: none">Submit and Generate</button>
+      <br>
+      <div id="error" style="display: none"></div>
       <br>
       <a id="back">Cancel</a>
     </div>
     <script>
+      var imagetest;
+
+      function testImage(url, timeoutT) {
+        return new Promise(function(resolve, reject) {
+          var timeout = timeoutT || 5000;
+          var timer, img = new Image();
+          img.onerror = img.onabort = function() {
+            clearTimeout(timer);
+            reject("error");
+          };
+          img.onload = function() {
+            clearTimeout(timer);
+            resolve("success");
+          };
+          timer = setTimeout(function() {
+            // reset .src to invalid URL so it stops previous
+            // loading, but doens't trigger new load
+            img.src = "//!!!!/noexist.jpg";
+            reject("timeout");
+          }, timeout);
+          img.src = url;
+        });
+      }
+
+      function record(url, result) {
+        imagetest = result;
+      }
+
+      function runImage(url) {
+        testImage(url).then(record.bind(null, url), record.bind(null, url));
+      }
       var url;
-      document.getElementById("go").addEventListener("click", function(){
+      document.getElementById("go").addEventListener("click", function() {
         url = document.getElementById("url").value;
         document.getElementById("form").style.display = "none";
         document.getElementById("validate").style.display = "block";
         document.getElementById("check").setAttribute("src", url);
+        runImage(url);
+        setTimeout(function() {
+          if (imagetest == "success") {
+            document.getElementById("submit").style.display = "block"
+          }
+          if (imagetest == "timeout") {
+            document.getElementById("error").style.display = "block";
+            document.getElementById("error").innerHTML = "Image timed out.";
+          }
+          if (imagetest == "error") {
+            document.getElementById("error").style.display = "block";
+            document.getElementById("error").innerHTML = "Image unavailible.";
+          }
+        }, 4500);
       });
-      document.getElementById("back").addEventListener("click", function(){
+      document.getElementById("back").addEventListener("click", function() {
         document.getElementById("form").style.display = "block";
         document.getElementById("validate").style.display = "none";
+        document.getElementById("submit").style.display = "none";
+        document.getElementById("error").style.display = "none";
+        document.getElementById("url").value = "none";
       });
-      document.getElementById("submit").addEventListener("click", function(){
-        if(document.getElementById("password").value = "password01"){
-          location.replace("https://koalastothemax.com?" + url);
-        }
-        else{
+      document.getElementById("submit").addEventListener("click", function() {
+        if (document.getElementById("password").value = "password01") {
+          var iframe = document.createElement("iframe");
+          iframe.setAttribute("src", "https://koalastothemax.com?" + url);
+          document.body.appendChild(iframe)
+          document.getElementById("validate").style.display = "none";
+        } else {
           alert("Incorrect passcode, access denied");
         }
       });
+
     </script>
   </body>
+
 </html>
