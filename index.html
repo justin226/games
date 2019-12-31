@@ -126,7 +126,7 @@ footer {
     }
     document.getElementById("turnoffmobile").addEventListener("click", function(){turnOffMobile();});
     function turnOffMobile(){
-      document.head.removeChild(document.getElemenstByTagName("meta")[0]);
+      document.head.removeChild(document.getElementsByTagName("meta")[0]);
     }
     var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 		var element = document.getElementById('mobilesite');
