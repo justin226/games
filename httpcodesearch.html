@@ -6,5 +6,20 @@
     </title>
   </head>
   <body>
+    <input type="text" id="code">
+    <button id="go">Search</button>
+    <script>
+      document.getElementById("go").addEventListener("click", function(){
+        var code = document.getElementById("code").value;
+        code = parseInt(code);
+        switch(code){
+          case 100:
+            alert("100: Continue");
+            break;
+          case 101;
+            alert();
+        }
+      });
+    </script>
   </body>
 </html>
