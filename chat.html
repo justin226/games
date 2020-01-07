@@ -35,6 +35,7 @@
             if(!sub){alert("Conection timed out")}
           }, 5000);
         }
+        document.getElementById("msg").value = "";
       });
       window.addEventListener("message", function (event) {
         if(event.data != "startup"){
