@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html onbeforeunload="close()">
+  <head>
+    <title>
+      Chat
+    </title>
+  </head>
+  <body>
+    <div id="window"></div><br>
+    <input id="msg" type="text">
+    <button id="go">Start</button>
+    <script>
+      function close(){
+        prnt.postMessage("&lt; | Bye", "*")
+      }
+      var msg;
+      var prnt;
+      var sub = false;
+      var click = false;
+      var msgel;
+      document.getElementById("go").addEventListener("click", function(){
+        if(!click){document.getElementById("go").innerHTML = "Text"}
+        msg = document.getElementById("msg").value;
+        if(sub){
+          prnt.postMessage("&lt; | " + msg, "*");
+          if(msg != "startup"){
+            window.postMessage( msg + " | &gt;", "*");
+          } else {
+            document.getElementById("window").innerHTML += "startup | &gt;" + "<br>";
+          }
+        } else {
+          prnt = eval(prompt());
+          sub = true;
+          setTimeout(function(){
+            prnt.postMessage("startup", "*");
+          }, 1000);
+        }
+      });
+      window.addEventListener("message", function (event) {
+        if(event.data != "startup"){
+          msgel = document.createElement("span");
+          document.getElementById("window").appendChild(msgel);
+          msgel.innerHTML += event.data + "<br>";
+          msg = event.data;
+          if(msg.slice(0, 1) == "&"){msgel.style.align = "left"} else {msgel.style.align = "right"}
+          sub = true;
+          click = true;
+        } else {
+          prnt = event.source;
+          sub = true;
+          click = true;
+          document.getElementById("go").innerHTML = "Text";
+        }
+      }, false);
+    </script>
+  </body>
+</html>
