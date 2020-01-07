@@ -30,23 +30,32 @@
           }
         } else {
           prnt = eval(prompt());
-          sub = true;
           setTimeout(function(){
             prnt.postMessage("startup", "*");
           }, 1000);
+          setTimeout(function(){
+            if(!sub){alert("Conection timed out")}
+          }, 5000);
         }
       });
       window.addEventListener("message", function (event) {
         if(event.data != "startup"){
-          msgel = document.createElement("span");
-          document.getElementById("window").appendChild(msgel);
-          msgel.innerHTML += event.data + "<br>";
-          msg = event.data;
-          if(msg.slice(0, 1) == "&"){msgel.style.align = "left"} else {msgel.style.align = "right"}
-          sub = true;
-          click = true;
+          if(event.data != "confirm"){
+            msgel = document.createElement("span");
+            document.getElementById("window").appendChild(msgel);
+            msgel.innerHTML += event.data + "<br>";
+            msg = event.data;
+            if(msg.slice(0, 1) == "&"){msgel.style.align = "left"} else {msgel.style.align = "right"}
+            sub = true;
+            click = true;
+          }
+          else {
+            sub = true;
+            alert("successfully connected");
+          }
         } else {
           prnt = event.source;
+          prnt.postMessage("confirm", "*");
           sub = true;
           click = true;
           document.getElementById("go").innerHTML = "Text";
