@@ -16,10 +16,8 @@
       var msg;
       var prnt;
       var sub = false;
-      var click = false;
       var msgel;
       document.getElementById("go").addEventListener("click", function(){
-        if(!click){document.getElementById("go").innerHTML = "Text"}
         msg = document.getElementById("msg").value;
         if(sub){
           prnt.postMessage("&lt; | " + msg, "*");
@@ -52,6 +50,7 @@
           else {
             sub = true;
             alert("successfully connected");
+            document.getElementById("go").innerHTML = "Text";
           }
         } else {
           prnt = event.source;
