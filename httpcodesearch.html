@@ -6,18 +6,120 @@
     </title>
   </head>
   <body>
-    <input type="text" id="code">
+    <input type="number" id="code">
     <button id="go">Search</button>
     <script>
       document.getElementById("go").addEventListener("click", function(){
-        var code = document.getElementById("code").value;
-        code = parseInt(code);
+        var code = parseInt(document.getElementById("code").value);
         switch(code){
           case 100:
-            alert("100: Continue");
+            alert("100: Continue\n1xx: Informational");
             break;
           case 101;
-            alert();
+            alert("101: Switching Protocols\n1xx: Informational");
+            break;
+          case 102:
+            alert("102: Processing\n1xx: Informational");
+            break;
+          case 103:
+            alert("103: Early Hints\n1xx: Informational");
+            break;
+          case 200:
+            alert("200: Ok\n2xx: Success");
+            break;
+          case 201:
+            alert("201: Created\n2xx: Success");
+            break;
+          case 202:
+            alert("202: Accepted\n2xx: Success");
+            break;
+          case 203:
+            alert("203: Non-Authoritative Information\n2xx: Success");
+            break;
+          case 204:
+            alert("204: No Content\n2xx: Success");
+            break;
+          case 205:
+            alert("205: Reset Content\n2xx: Success");
+            break;
+          case 206:
+            alert("206: Partial Content\n2xx: Success");
+            break;
+          case 207:
+            alert("207: Multi-Status\n2xx: Success");
+            break;
+          case 208:
+            alert("208: Already Reported\n2xx: Success");
+            break;
+          case 226:
+            alert("226: IM Used\n2xx: Success");
+            break;
+          case 300:
+            alert("300: Multiple Choices\n3xx: Redirection");
+            break;
+          case 301:
+            alert("301: Moved Permanently\n3xx: Redirection");
+            break;
+          case 302:
+            alert("302: Found\n3xx: Redirection");
+            break;
+          case 303:
+            alert("303: See Other\n3xx: Redirection");
+            break;
+          case 304:
+            alert("304: Not Modified\n3xx: Redirection");
+            break;
+          case 305:
+            alert("305: Use Proxy\n3xx: Redirection");
+            break;
+          case 306:
+            alert("306: Switch Proxy\n3xx: Redirection");
+            break;
+          case 307:
+            alert("307: Temporary Redirect\n3xx: Redirection");
+            break;
+          case 308:
+            alert("308: Permanent Redirect\n3xx: Redirection");
+            break;
+          case 400:
+            alert("400: Bad Request\n3xx: Client Error");
+            break;
+          case 401:
+            alert("401: Unauthorized\n3xx: Client Error");
+            break;
+          case 402:
+            alert("402: Payment Required\n3xx: Client Error");
+            break;
+          case 403:
+            alert("403: Bad Request\n3xx: Client Error");
+            break;
+          case 404:
+            alert("404: Page not Found\n3xx: Client Error");
+            break;
+          case 405:
+            alert("405: Method not Allowed\n3xx: Client Error");
+            break;
+          case 406:
+            alert("406: Not Acceptable\n3xx: Client Error");
+            break;
+          case 407:
+            alert("407: Proxy Authenentication Required\n3xx: Client Error");
+            break;
+          case 408:
+            alert("408: Request Timeout\n3xx: Client Error");
+            break;
+          case 409:
+            alert("400: Conflict\n3xx: Client Error");
+            break;
+          case 410:
+            alert("410: Gone\n3xx: Client Error");
+            break;
+          case 411:
+            alert("410: Length Required\n3xx: Client Error");
+            break;
+          case 412:
+            alert("412: Gone\n3xx: Client Error");
+            break;
         }
       });
     </script>
