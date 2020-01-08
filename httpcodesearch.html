@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html>
+
   <head>
     <title>
-      Search for HYPERTEXT TRANSFER PROTOCOL codes
+      Search for HYPERTEXT TRANSFER PROTOCOL STATUS codes
     </title>
   </head>
+
   <body>
     <input type="number" id="code">
     <button id="go">Search</button>
     <script>
-      document.getElementById("go").addEventListener("click", function(){
+      document.getElementById("go").addEventListener("click", function() {
         var code = parseInt(document.getElementById("code").value);
-        switch(code){
+        switch (code) {
           case 100:
             alert("100: Continue\n1xx: Informational");
             break;
-          case 101;
+          case 101:
             alert("101: Switching Protocols\n1xx: Informational");
             break;
           case 102:
@@ -115,13 +117,98 @@
             alert("410: Gone\n3xx: Client Error");
             break;
           case 411:
-            alert("410: Length Required\n3xx: Client Error");
+            alert("411: Length Required\n3xx: Client Error");
             break;
           case 412:
-            alert("412: Gone\n3xx: Client Error");
+            alert("412: Precondition Failed\n3xx: Client Error");
             break;
+          case 413:
+            alert("413: Payload too large\n3xx: Client Error");
+            break;
+          case 414:
+            alert("414: URI Too Long\n3xx: Client Error");
+            break;
+          case 415:
+            alert("415: Unsupported media type\n3xx: Client Error");
+            break;
+          case 416:
+            alert("416: Range Not Satisfiable\n3xx: Client Error");
+            break;
+          case 417:
+            alert("417: Expectations Failed\n3xx: Client Error");
+            break;
+          case 418:
+            alert("418: I'm a teapot\n3xx: Client Error");
+            break;
+          case 421:
+            alert("419: Misdirected Redirect\n3xx: Client Error");
+            break;
+          case 422:
+            alert("420: Unprocessable Entity\n3xx: Client Error");
+            break;
+          case 423:
+            alert("420: Locked\n3xx: Client Error");
+            break;
+          case 424:
+            alert("424: Failed Dependency\n3xx: Client Error");
+            break;
+          case 425:
+            alert("425: Too Early\n3xx: Client Error");
+            break;
+          case 426:
+            alert("426: Upgrade Required\n3xx: Client Error");
+            break;
+          case 428:
+            alert("428: Precondition Required\n3xx: Client Error");
+            break;
+          case 429:
+            alert("429: Too Many Requests\n3xx: Client Error");
+            break;
+          case 431:
+            alert("430: Request Header Fields Too Large\n3xx: Client Error");
+            break;
+          case 451:
+            alert("431: Unavailable For Legal Reasons\n3xx: Client Error");
+            break;
+          case 500:
+            alert("500: Internal Server Error\n3xx: Server Error");
+            break;
+          case 501:
+            alert("501: Not Implemented\n3xx: Server Error");
+            break;
+          case 502:
+            alert("502: Bad Gateway\n3xx: Server Error");
+            break;
+          case 503:
+            alert("503: Service Unavailable\n3xx: Server Error");
+            break;
+          case 504:
+            alert("504: Gateway Timeout\n3xx: Server Error");
+            break;
+          case 505:
+            alert("505: HTTP Version Not Supported");
+            break;
+          case 506:
+            alert("506: Variant Also Negotiates\n3xx: Server Error");
+            break;
+          case 507:
+            alert("507: Insufficient Storage\n3xx: Server Error");
+            break;
+          case 508:
+            alert("508: Loop Detected\n3xx: Server Error");
+            break;
+          case 510:
+            alert("510: Not Extended\n3xx: Server Error");
+            break;
+          case 511:
+            alert("511: Network Authentication Required\n3xx: Server Error");
+            break;
+          default:
+            alert("xxx: xxxxxxxx\nxxx: xxxxxxxxxxxxx");
         }
       });
+
     </script>
   </body>
+
 </html>
