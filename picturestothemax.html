@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    PICTURES TO THE MAX
+  </head>
+  <body>
+    <iframe id="game"></iframe>
+    <script>
+      function getUrlVars() {
+        var vars = {};
+        var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+            vars[key] = value;
+        });
+        return vars;
+      }
+      function getUrlParam(parameter, defaultvalue){
+        var urlparameter = defaultvalue;
+        if(window.location.href.indexOf(parameter) > -1){
+           urlparameter = getUrlVars()[parameter];
+        }
+        return urlparameter;
+      }
+      switch(getUrlParam("picture", "koala")){
+        case "koala":
+          document.getElementById("game").setAttribute("src", "https://koalastothemax.com");
+          break;
+        case "elephant":
+          document.getElementById("game").setAttribute("src", "https://koalastothemax.com?https://upload.wikimedia.org/wikipedia/commons/3/37/African_Bush_Elephant.jpg");
+          break;
+        case "dog":
+          document.getElementById("game").setAttribute("src", "https://koalastothemax.com?http://cdn.akc.org/westie_header_1.jpg");
+          break;
+        
+      }
+    </script>
+  </body>
+</html>
