@@ -1,9 +1,10 @@
 <html><head><title></title></head><body>
 <button id="go">GO</button><script>document.getElementById("go").addEventListener("click", function(){
-if(prompt() == "title"){document.getElementsByTagName("title").innerHTML = prompt();} else {
+if(prompt() == "title"){document.getElementsByTagName("title")[0].innerHTML = prompt();} else {
 var fav = document.createElement("link");
+document.head.appendChild(fav);
 fav.setAttribute("rel", "shortcut icon");
-fav.setAttribute("href", prompt())
+fav.setAttribute("href", prompt());
 }
 
 })</script></body></html>
