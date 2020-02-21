@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <title>
+      Canvas Test
+    </title>
+  </head>
+  <body>
+    <div id="lock">
+  Justin Fu has enforced a lock on this site to prevent unauthorized people accessing Justin Fu's site. To gain access, enter the password.
+  <input type="password" id="password">
+  <input type="submit" id="unlock" value="Submit">
+  <span style="color: red" id="unlockable"></span>
+</div>
+    <div id="game" style="display: none;">
+    <canvas id="myCanvas" height="1000" width="1000">Your browser does not support canvas.</canvas>
+      <br>
+      <button style="color: red" id="exit">
+    Exit
+  </button>
+      <button id="redo">Change Color</button>
+      <br>
+    </div>
+    <a href="https://justin226.github.io/games">Return to Main Page</a>
+    <script>
+      checkLock();
+function getCookie(cname) {
+  var name = cname + "=";
+  var decodedCookie = decodeURIComponent(document.cookie);
+  var ca = decodedCookie.split(';');
+  for(var i = 0; i < ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+function checkLock(){
+  c = getCookie("locked");
+  if(c !== "false"){
+     document.getElementById("game").style.display = "none";
+     document.getElementById("lock").style.display = "block";
+  }
+  else{
+    document.getElementById("lock").style.display = "none";
+    document.getElementById("game").style.display = "block";
+    document.getElementById("password").value = "";
+    document.getElementById("unlockable").innerHTML = "";
+  }
+}
+document.getElementById("unlock").addEventListener("click", function(){
+  if(document.getElementById("password").value === "password01"){
+    document.getElementById("game").style.display = "block";
+    document.getElementById("lock").style.display = "none";
+    document.cookie = "locked=false";
+    document.getElementById("password").value = "";
+    document.getElementById("unlockable").innerHTML = "";
+  }
+  else{
+    document.getElementById("unlockable").innerHTML = "Wrong";
+  }
+});
+document.getElementById("exit").addEventListener("click", function(){
+  document.cookie = "locked=true";
+  checkLock();
+});
+      doIt();
+      function doIt(){
+      var a = 0;
+      var b = 0;
+      var c = 100;
+      var d = 100;
+      var red;
+      var color;
+      var green;
+      var blue;
+      var canvas = document.getElementById("myCanvas");
+      var ctx = canvas.getContext("2d");
+      
+        for(var o = 0; o < c; o++){
+          
+          for(var i = 0; i < d; i++){
+          color = "#000000";
+          if(Math.random() > 0.49){color = "#ffffff"}
+          //alert(color);
+          ctx.fillStyle = color;
+          ctx.fillRect(a, b, 10, 10);
+           a += 10;
+        }
+        a -= 1000;
+        b += 10;
+        }
+        setTimeout(function(){doIt()}, 100);
+      }
+    </script>
+    <script language="JavaScript">
+  /**
+    * Disable right-click of mouse, F12 key, and save key combinations on page
+    * By Arthur Gareginyan (arthurgareginyan@gmail.com)
+    * For full source code, visit https://mycyberuniverse.com
+    */
+  window.onload = function() {
+    document.addEventListener("contextmenu", function(e){
+      e.preventDefault();
+    }, false);
+    document.addEventListener("keydown", function(e) {
+    //document.onkeydown = function(e) {
+      // "I" key
+      if (e.ctrlKey && e.shiftKey && e.keyCode == 73) {
+        disabledEvent(e);
+        document.getElementById("alert").innerHTML = "Inspect is prohibited";
+      }
+      // "J" key
+      if (e.ctrlKey && e.shiftKey && e.keyCode == 74) {
+        disabledEvent(e);
+        document.getElementById("alert").innerHTML = "Inspect is prohibited";
+      }
+      // "S" key + macOS
+      if (e.keyCode == 83 && (navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)) {
+        disabledEvent(e);
+        document.getElementById("alert").innerHTML = "Command Mode is prohibited";
+      }
+      // "U" key
+      if (e.ctrlKey && e.keyCode == 85) {
+        disabledEvent(e);
+      }
+      // "F12" key
+      if (event.keyCode == 123) {
+        disabledEvent(e);
+        document.getElementById("alert").innerHTML = "Inspect is prohibited";
+      }
+    }, false);
+    function disabledEvent(e){
+      if (e.stopPropagation){
+        e.stopPropagation();
+      } else if (window.event){
+        window.event.cancelBubble = true;
+      }
+      e.preventDefault();
+      return false;
+    }
+  };
+</script>
+  </body>
+</html>
