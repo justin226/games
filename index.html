@@ -130,6 +130,8 @@ footer {
     document.getElementById("turnoffmobile").addEventListener("click", function(){turnOffMobile();});
     function turnOffMobile(){
       document.head.removeChild(document.getElementsByTagName("meta")[0]);
+      alert("You turned off mobile mode");
+      document.getElementById("mobilesite").style.display = "none";
     }
     var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 		var element = document.getElementById('mobilesite');
