@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>
 		Calculator
 	</title>
@@ -147,9 +148,13 @@ document.getElementById("unlock").addEventListener("click", function(){
 });
 document.getElementById("go").addEventListener("click", function(){
 a = document.getElementById("input").value;
-one = a.replace("×", "*");
-two = one.replace("÷", "/");
-document.getElementById("input").value = eval(two);
+	for(var count = 0; count < a.length; count++){
+a.replace("×", "*");
+a.replace("÷", "/");
+	}
+var answer = eval(a);
+	if(answer == "NaN"){answer = "Error"}
+document.getElementById("input").value = answer;
 });
 document.getElementById("0").addEventListener("click", function(){
   b = document.getElementById("input").value;
