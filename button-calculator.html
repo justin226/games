@@ -11,7 +11,7 @@
 		}
 		#game {
 			background-color: gray;
-      width: 412px;
+      width: 415px;
       box-shadow: 10px 10px 5px #888888;
 		}
 	</style>
@@ -26,6 +26,19 @@
 	<div id="game" style="display: none;">
 <input type="text" id="input" style="width: 408px; height: 50px">
 <br>
+<button id="x" style="width: 100px">
+&lt;--
+</button>
+<button id="+/-" style="width: 100px">
+8
+</button>
+<button id="%" style="width: 100px">
+9
+</button>
+<button id="/" style="width: 100px">
+÷
+</button>
+<br>
 <button id="7" style="width: 100px">
 7
 </button>
@@ -35,8 +48,8 @@
 <button id="9" style="width: 100px">
 9
 </button>
-<button id="/" style="width: 100px">
-÷
+<button id="*" style="width: 100px">
+×
 </button>
 <br>
 <button id="4" style="width: 100px">
@@ -48,8 +61,8 @@
 <button id="6" style="width: 100px">
 6
 </button>
-<button id="*" style="width: 100px">
-×
+<button id="-" style="width: 100px">
+-
 </button>
 <br>
 <button id="1" style="width: 100px">
@@ -61,22 +74,20 @@
 <button id="3" style="width: 100px">
 3
 </button>
-<button id="-" style="width: 100px">
--
+<button id="+" style="width: 100px">
++
 </button>
 <br>
-<button id="x" style="width: 100px">
-&lt;--
-</button>
-<button id="0" style="width: 100px">
+<button id="0" style="width: 204px">
 0
+</button>
+<button id="." style="width: 100px">
+.
 </button>
 <button id="go" style="width: 100px">
 =
 </button>
-<button id="+" style="width: 100px">
-+
-</button><br>
+<br>
 </div>
 	<button style="color: red; display: none;" id="exit">
     Exit
@@ -205,6 +216,18 @@ document.getElementById("*").addEventListener("click", function(){
 document.getElementById("/").addEventListener("click", function(){
 	b = document.getElementById("input").value;
 	document.getElementById("input").value = b + "÷";
+});
+document.getElementById("+/-").addEventListener("click", function(){
+	b = document.getElementById("input").value;
+	document.getElementById("input").value = parseInt(b) - (parseInt(b) * 2);
+});
+document.getElementById("%").addEventListener("click", function(){
+	b = document.getElementById("input").value;
+	document.getElementById("input").value = parseInt(b) / 100;
+});
+document.getElementById(".").addEventListener("click", function(){
+	b = document.getElementById("input").value;
+	document.getElementById("input").value = b + ".";
 });
 </script>
 <script language="JavaScript">
